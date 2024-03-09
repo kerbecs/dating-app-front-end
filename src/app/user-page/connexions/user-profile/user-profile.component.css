@@ -1,0 +1,90 @@
+.profile-container{
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  background-size: cover;
+  box-shadow: 0 0 15px 8px rgba(0,0,0,0.45);
+  transition: transform 0.5s;
+
+}
+.user-info{
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 32%);
+  color: white;
+  font-weight: 800;
+}
+
+.profile-container:hover{
+  transform: scale(110%);
+  transition: transform 0.5s;
+}
+.online-circle{
+  width: 0.5dvw;
+  height: 0.5dvw;
+  background-color: greenyellow;
+  border-radius: 50%;
+  display: inline-block;
+}
+.offline-circle{
+  width: 0.5dvw;
+  height: 0.5dvw;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+}
+.name{
+  font-size: 1.2rem;
+}
+.mat-icon{
+  transform: scale(120%);
+}
+
+@media screen and (width >= 1200px) {
+  .profile-container {
+    height: 23dvw;
+    width: 18dvw;
+  }
+  .user-info{
+    height: 23dvw;
+    width: 18dvw;
+  }
+}
+@media screen and (width >= 992px) and (width < 1200px) {
+  .profile-container {
+    height: 28dvw;
+    width: 23dvw;
+  }
+  .user-info{
+    height: 28dvw;
+    width: 23dvw;
+  }
+}
+@media screen and (width >= 768px) and (width < 992px) {
+  .profile-container {
+    height: 35dvw;
+    width: 30dvw;
+  }
+  .user-info{
+    height: 35dvw;
+    width: 30dvw;
+  }
+}
+@media screen and (width >= 576px) and (width < 768px) {
+  .profile-container {
+    height: 50dvw;
+    width: 50dvw;
+  }
+  .user-info{
+    height: 50dvw;
+    width: 50dvw;
+  }
+}
+@media screen and (width < 576px) {
+  .profile-container {
+    height: 75dvw;
+    width: 75dvw;
+  }
+  .user-info{
+    height: 75dvw;
+    width: 75dvw;
+  }
+}

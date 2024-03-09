@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <app-friend-message class="bg-transparent" *ngIf="!message.isOwnMessage" [message]="message"></app-friend-message>
+  <app-user-message class="bg-transparent" *ngIf="message.isOwnMessage" [message]="message"></app-user-message>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<div class="container-fluid dvw-100 main">
+  <div class="row dvw-100 bg-primary header-container align-content-center align-items-center justify-content-center">
+    <div class="col-lg-2 col-md-2 d-md-block d-sm-none d-none">
+      <div class="row align-items-center ms-lg-2 me-md-3">
+        <div class="col">
+          <button mat-fab color="warn" class="menu-button" aria-label="Example icon button with a home icon" routerLink="/user/welcome-page">
+            <mat-icon>home</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-8 col-md-7 text-center d-md-block d-sm-none d-none">
+      <button mat-button class="h-100 p-md-8 central-button d-md-inline d-sm-block d-block" routerLink="/user/connexions">
+        Connexions
+        <mat-icon matSuffix>people</mat-icon>
+      </button>
+      <button mat-button class="h-100 p-md-3 central-button d-md-inline" routerLink="/user/chat"
+              [matBadgeHidden]="chatService.unreadMessages <= 0" [matBadge]="chatService.unreadMessages" matBadgeColor="warn">
+        Chat
+        <mat-icon matSuffix> chat</mat-icon>
+      </button>
+      <button mat-button class="h-100 p-md-2 central-button d-md-inline" routerLink="/user/map">
+        Event Map
+        <mat-icon matSuffix>map</mat-icon>
+      </button>
+    </div>
+    <div class="col-lg-2 col-md-3 text-center d-md-block d-sm-none d-none">
+      <div class="row align-items-center justify-content-center mt-md-0 ">
+        <div class="col-xl-3 col-lg-4 col-md-4 text-center">
+          <button [matMenuTriggerFor]="notifications" mat-fab color="warn" class="menu-button"
+                  aria-label="Example icon button with a home icon">
+            <mat-icon *ngIf="notificationService.notifications.length == 0">notifications</mat-icon>
+            <mat-icon *ngIf="notificationService.notifications.length > 0">notifications_active</mat-icon>
+          </button>
+          <mat-menu #notifications="matMenu" class="overflow-hidden">
+            <div class="row justify-content-center align-middle align-middle"
+                 *ngFor="let notification of notificationService.notifications"
+                 >
+              <div class="col-2 text-center" [ngSwitch]="notification.userMatchAction.toString()">
+                <mat-icon *ngSwitchCase="'LOVE'" class="icon heard text-danger ms-1" role="button">favorite</mat-icon>
+                <mat-icon *ngSwitchCase="'LIKE'" class="icon heard text-danger ms-1" role="button">thumb_up_alt</mat-icon>
+                <mat-icon *ngSwitchCase="'ADD'" class="icon heard text-danger ms-1" role="button">add</mat-icon>
+              </div>
+              <div class="col-10" [ngSwitch]="notification.userMatchAction">
+                <span *ngSwitchCase="'LOVE'" class="text-light">{{notification.senderFirstName}} loves you!</span>
+                <span *ngSwitchCase="'LIKE'" class="text-light">{{notification.senderFirstName}} likes you!</span>
+                <span *ngSwitchCase="'ADD'" class="text-light">{{notification.senderFirstName}} connected with you!</span>
+              </div>
+            </div>
+          </mat-menu>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-4 text-center">
+          <button mat-fab color="warn" class="menu-button" aria-label="Example icon button with a home icon">
+            <mat-icon>language</mat-icon>
+          </button>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-4 text-center">
+          <button [matMenuTriggerFor]="account" mat-fab color="warn" class="menu-button"
+                  aria-label="Example icon button with a home icon">
+            <mat-icon>person</mat-icon>
+          </button>
+          <mat-menu #account="matMenu">
+            <button mat-menu-item>Profile</button>
+            <button mat-menu-item>Settings</button>
+            <button mat-menu-item (click)="userHeaderService.logout()">Logout</button>
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+    <div class="col-11 text-end d-md-none d-sm-block d-block h-100">
+      <div class="row align-items-center justify-content-center align-items-center align-middle h-100">
+        <div class="col-12">
+          <span #menuButton>
+          <mat-icon class="menu-icon" role="button">menu</mat-icon>
+            </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid mobile-menu dvw-100 dvh-100 position-absolute d-md-none d-sm-block d-block" #mobileHeader>
+  <div class="row dvw-100 dvh-100 align-content-center align-items-center justify-content-center">
+    <div class="col-sm-11 col-12 text-center mb-5">
+      <div class="row align-items-center justify-content-center">
+        <div class="text-center">
+          <button mat-button class="h-100 central-button d-md-inline" aria-label="Example icon button with a home icon" (click)="closeMobileMenu()">
+            <mat-icon matSuffix>language</mat-icon>
+            <span class="">Language</span>
+          </button>
+        </div>
+        <div class="text-center">
+          <button [matMenuTriggerFor]="menu" mat-fab color="warn" class="menu-button"
+                  aria-label="Example icon button with a home icon" (click)="closeMobileMenu()">
+            <span class="">Account</span>
+            <mat-icon matSuffix>person</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>Profile</button>
+            <button mat-menu-item>Settings</button>
+            <button mat-menu-item>Logout</button>
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-11 col-12">
+      <div class="row align-items-center justify-content-center">
+        <div class="col text-center">
+          <button mat-button class="h-100 central-button d-md-inline" aria-label="Example icon button with a home icon"
+                  routerLink="/user/welcome-page" (click)="closeMobileMenu()">
+            Home
+            <mat-icon matSuffix>home</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-11 col-12 text-center">
+      <button mat-button class="h-100 central-button d-md-inline " (click)="closeMobileMenu()">
+        Connexions
+        <mat-icon matSuffix>people</mat-icon>
+      </button>
+      <button mat-button class="h-100 p-md-3 central-button" routerLink="/user/chat" (click)="closeMobileMenu()">
+        Chat
+        <mat-icon matSuffix> chat</mat-icon>
+      </button>
+      <button mat-button class="h-100 p-md-3 central-button" routerLink="/user/map" (click)="closeMobileMenu()">
+        Event Map
+        <mat-icon matSuffix>map</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

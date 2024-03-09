@@ -1,0 +1,90 @@
+
+nav {
+  height: 8dvh;
+  background-color: rgb(0, 0, 0, 0.5);
+  width: 100dvw;
+  z-index: 200;
+}
+
+.list-group-item {
+  color: white;
+}
+
+li span {
+  font-size: 2.6dvh;
+  font-family: "Atkinson Hyperlegible", sans-serif;;
+}
+
+main {
+  color: white;
+  height: 93dvh;
+}
+
+.menu{
+  width: 5dvh;
+}
+#navMenu{
+  transform: translateX(100%);
+  backdrop-filter: blur(15px);
+  z-index: 100;
+}
+.open-menu{
+  display: block;
+  animation: linear;
+  animation-name: open-menu;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+}
+@-webkit-keyframes open-menu {
+  0%{
+    transform: translateX(100%);
+  }
+  100%{
+    transform: translateX(0);
+  }
+}
+.close-menu{
+  display: block;
+  animation: linear;
+  animation-name: close-menu;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes close-menu {
+  0%{
+    transform: translateX(0%);
+  }
+  100%{
+    transform: translateX(100%);
+  }
+}
+.link:hover {
+  background-color: rgb(22, 90, 175, 1);
+  font-weight: 800;
+  transition: font-weight 0.5s;
+}
+.menu-button{
+  height: 5dvh;
+  font-size: 2.25dvh;
+  font-weight: 600;
+  transition: transform 0.4s;
+
+}
+.menu-button:hover{
+   background-color: rgb(43, 112, 191) !important;
+   color: white;
+  transform: scale(1.1);
+  transition: transform 0.4s;
+}
+ul li{
+  transition: transform 0.4s;
+}
+ul li:hover{
+  transform: scale(1.15);
+  transition: transform 0.4s;
+}
+.language{
+  width: 5vh;
+  position: absolute;
+}

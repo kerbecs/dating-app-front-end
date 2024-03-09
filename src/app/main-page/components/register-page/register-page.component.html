@@ -1,0 +1,25 @@
+<div class="row dvh-100 main justify-content-center align-content-center align-items-center align-middle">
+    <div class="main-div bg-light col-xl-8 col-lg-10 col-md-10 col-sm-11 col-11  rounded-5 mt-5">
+        <div class="h-100">
+            <mat-tab-group class="h-100" [(selectedIndex)]="formControlService.matGroupIndex"
+                           *ngIf="!registerUserService.registered">
+                <mat-tab label="General Information">
+                    <app-general-info></app-general-info>
+                </mat-tab>
+                <mat-tab label="Account" class="h-100">
+                    <app-account></app-account>
+                </mat-tab>
+                <mat-tab label="Final">
+                    <app-agrements></app-agrements>
+                </mat-tab>
+            </mat-tab-group>
+            <div class="row h-100 justify-content-center align-items-center" *ngIf="registerUserService.registered">
+                <div class="col-xl-8 col-lg-9 col-md-10 col-sm-11 col-12 text-center registered">
+                    <p>You were successfully registered!</p>
+                    <p>A confirmation link was send to the entered email, if such an email exists.</p>
+                    <p>The activation link is available for 1 hour.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

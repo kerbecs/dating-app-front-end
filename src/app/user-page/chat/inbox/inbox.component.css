@@ -1,0 +1,76 @@
+.inbox-area {
+  height: 85%;
+  background: linear-gradient(50deg, rgb(51,51,54), rgb(71,71,74)) no-repeat;
+  border-radius: 15px;
+  width: 92.5%;
+
+}
+.message-img-profile {
+  width: 60%;
+}
+.friend-message {
+  color: whitesmoke;
+  background-color: rgb(73, 73, 73);
+  border-radius: 10px;
+}
+.messages-section {
+  height: 82.5%;
+}
+.text-area-section{
+  height: 12%;
+}
+
+.message {
+  height: 6.5dvh;
+}
+.my-message {
+  background-color: rgb(59, 105, 154);
+}
+.btn-primary {
+  background-color: rgb(73,73,73);
+  border: transparent;
+}
+.btn-primary:hover, .btn-primary:active, .btn-primary:link, .btn-primary:visited, .btn-primary:focus {
+  background-color: #333336; !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.dropdown-menu {
+  min-width: 5rem;
+  padding: 0 0;
+  color: #212529;
+  background-color: whitesmoke;
+  border-radius: 0.5rem;
+}
+.dropdown-item {
+  border-radius: 0.5rem;
+}
+.dropdown-item:active {
+  background-color: rgb(99, 71, 152);
+}
+.hour {
+  font-size: 0.8rem;
+}
+.button:hover {
+  background-color: rgb(99, 71, 152);
+}
+.text-container{
+  width: 95%;
+}
+@media only screen and (max-width: 576px){
+  .message-img-profile {
+    width: 75% !important;
+  }
+  .inbox-area {
+    height: 87.5%;
+    width: 97.5%;
+  }
+  .send-icon img{
+    width: 1% !important;
+  }
+}
+.send-icon{
+  width: 4dvh;
+  height: 4dvh;
+}
+

@@ -1,0 +1,26 @@
+<div class="container h-75" [formGroup]="formControlService.registerFormGroup">
+  <div class="row h-75 overflow-hidden h-100 mt-5 justify-content-center align-middle align-content-center align-items-center" formGroupName="agreements">
+    <div class="col-xl-10 mt-3">
+      <span class="example-list-section">
+    <mat-checkbox class="example-margin"
+                  [color]="'primary'"
+                  formControlName="declareIsAdult"
+                  value="true"
+    >
+      <span>I declare that the entered birth date is correct and I am at least 18 years old</span>
+    </mat-checkbox>
+        <mat-checkbox class="example-margin"
+                      [color]="'primary'"
+                      formControlName="declareAgreeTerms"
+                      value="true"
+        >
+      <span>I declare that I have read the terms and policy and I agree with all of them</span>
+    </mat-checkbox>
+        <div class="col-xl-12 mt-5 text-center">
+        <button class="btn btn-primary next-button" (click)="registerUser()"  [disabled]="!formControlService.registerFormGroup.valid">
+Create account</button>
+      </div>
+  </span>
+    </div>
+  </div>
+</div>

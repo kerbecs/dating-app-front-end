@@ -1,0 +1,23 @@
+.mat-mdc-radio-button.mat-accent {
+  --mdc-radio-disabled-selected-icon-color: black;
+  --mdc-radio-disabled-unselected-icon-color: black;
+  --mdc-radio-unselected-hover-icon-color: black;
+  --mdc-radio-unselected-icon-color: black;
+  --mdc-radio-selected-focus-icon-color: black;
+  --mdc-radio-selected-hover-icon-color: black;
+  --mdc-radio-selected-icon-color: black;
+  --mdc-radio-selected-pressed-icon-color: black;
+  --mat-radio-ripple-color: black;
+  --mat-radio-checked-ripple-color: black;
+  --mat-radio-disabled-label-color: black;
+}
+.mat-mdc-radio-button {
+  --mdc-form-field-label-text-color: black;
+}
+.mat-datepicker-toggle {
+  pointer-events: auto;
+  color: black;
+}
+.mat-mdc-select-arrow svg {
+  fill: black !important;
+}

@@ -1,0 +1,53 @@
+<form class="h-100" [formGroup]="formControlService.registerFormGroup">
+    <div class="container h-100" formGroupName="account">
+        <div class="row h-100 overflow-hidden  align-middle justify-content-center align-content-center align-items-center">
+            <div class="col-2"></div>
+            <div class="col-md-7 col-12 mt-3">
+                <mat-form-field [style.width.%]="100">
+                    <mat-label>Enter your email</mat-label>
+                    <mat-icon matSuffix>email</mat-icon>
+                    <input aria-autocomplete="none" autocomplete="off" matInput required formControlName="email">
+                </mat-form-field>
+            </div>
+            <div class="col-2 text-start">
+                <mat-spinner [style.width.%]="15" *ngIf="registerUserService.isCheckingEmail"></mat-spinner>
+                <mat-icon class="text-success" *ngIf="registerUserService.showEmailAvailableIcon">check_circle_outline</mat-icon>
+                <mat-icon class="text-danger" matTooltip="This email is not available"
+                          matTooltipPosition="right" *ngIf="registerUserService.showEmailUnavailableIcon">block</mat-icon>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-md-7 col-12 mt-3 text-center">
+                <mat-form-field [style.width.%]="100">
+                    <mat-label>
+                        Enter your Password
+                    </mat-label>
+                    <mat-icon matSuffix>lock</mat-icon>
+                    <input autocomplete="new-password" matInput required type="password" formControlName="password">
+                </mat-form-field>
+            </div>
+            <div class="col-2 text-start">
+                <div [style.width.%]="100" class="text-start"
+                     *ngIf="formControlService?.registerFormGroup?.get('account.password')?.errors?.['pattern'] && formControlService?.registerFormGroup?.get('account.password')?.touched">
+                    <mat-icon matTooltip="Minimum 8 characters(upper letter, number and special character)"
+                              matTooltipPosition="right">
+                        info
+                    </mat-icon>
+                </div>
+            </div>
+            <div class="col-md-7 col-12 mt-3 text-center">
+                <mat-form-field [style.width.%]="100">
+                    <mat-label>Repeat yor password</mat-label>
+                    <mat-icon matSuffix>lock</mat-icon>
+                    <input autocomplete="new-password" matInput required type="password"
+                           formControlName="repeatedPassword">
+                </mat-form-field>
+            </div>
+            <div class="col-xl-12 mt-5 text-center">
+                <button class="btn btn-primary next-button" (click)="formControlService.matGroupIndex = 2"
+                        [disabled]="formControlService?.getAccountFormGroup()?.invalid || !formControlService?.getAccountFormGroup()?.touched">
+                    Next
+                </button>
+            </div>
+        </div>
+    </div>
+</form>

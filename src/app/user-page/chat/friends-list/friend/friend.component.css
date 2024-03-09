@@ -1,0 +1,24 @@
+
+.img-container{
+  width: 6dvh;
+  height: 6dvh;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+}
+.friend{
+  height: 10dvh;
+  color: whitesmoke;
+  font-size: 1.8dvh;
+  border-bottom: 1px solid rgb(128, 128, 128);
+}
+.friend:hover{
+  background-color: rgb(73, 73, 73);
+}
+.new-message{
+  background-color: rgb(101, 101, 101);
+  font-weight: 800;
+}
+.selected, .selected:hover{
+  background-color: rgba(25, 68, 122, 0.99);
+}

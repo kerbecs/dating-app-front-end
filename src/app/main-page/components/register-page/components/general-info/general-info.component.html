@@ -1,0 +1,64 @@
+ <div class="container" [formGroup]="formControlService.registerFormGroup">
+    <div class="row overflow-hidden h-100 mt-lg-5 mt-md-4 mt-2 align-middle align-content-center align-items-center" formGroupName="generalInfo">
+      <div class="col-md-6 col-12 mt-3 text-center">
+        <mat-form-field [style.width.%]="90">
+          <mat-label>First name</mat-label>
+          <mat-icon matSuffix>person_outline</mat-icon>
+          <input matInput required formControlName="firstName">
+        </mat-form-field>
+      </div>
+      <div class="col-md-6 col-12 mt-3 text-center">
+        <mat-form-field [style.width.%]="90" >
+          <mat-label>Last name</mat-label>
+          <input matInput required formControlName="lastName">
+          <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6 col-12 mt-3 text-center">
+        <mat-form-field [style.width.%]="90">
+          <mat-label>Country</mat-label>
+          <mat-icon matSuffix>language</mat-icon>
+          <mat-select formControlName="country">
+            <mat-option *ngFor="let country of countryList" [value]="country.code">{{country.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6 col-12 mt-3 text-center">
+        <mat-form-field [style.width.%]="90" >
+          <mat-label>City</mat-label>
+          <mat-icon matSuffix>location_city</mat-icon>
+          <input required matInput formControlName="city">
+        </mat-form-field>
+      </div>
+      <div class="col-lg-6 col-md-8 col-12 mt-3 text-center">
+        <div class="label">Gender</div>
+        <mat-radio-group [style.width.%]="100" aria-label="Select an option" class="ms-3" formControlName="gender">
+          <mat-radio-button value="MALE">Male</mat-radio-button>
+          <mat-radio-button value="FEMALE">Female</mat-radio-button>
+          <mat-radio-button value="TRANSGENDER">Transgender</mat-radio-button>
+          <mat-radio-button value="OTHER">Other</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <div class="col-md-6 col-12  mt-3 text-center">
+        <mat-form-field [style.width.%]="90">
+          <mat-label>Date of birth</mat-label>
+          <input matInput required [matDatepicker]="dp" formControlName="birthDate">
+          <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
+          <mat-datepicker #dp
+                          startView="multi-year"
+                          panelClass="example-month-picker"
+                          >
+          </mat-datepicker>
+        </mat-form-field>
+        <p class="text-danger" *ngIf="formControlService?.getGeneralInfoFormGroup()?.controls?.['birthDate']?.errors?.['age'] && formControlService.getGeneralInfoFormGroup()?.controls?.['birthDate']?.touched">
+          You cannot register if you are not at least 18 years
+        </p>
+      </div>
+      <div class="col-xl-12 mt-lg-5 mt-md-3 mt-2 text-center">
+        <button class="btn btn-primary next-button" (click)="formControlService.matGroupIndex = 1" [disabled]="formControlService?.getGeneralInfoFormGroup()?.invalid || !formControlService?.getGeneralInfoFormGroup()?.touched">
+          Next
+        </button>
+      </div>
+    </div>
+  </div>

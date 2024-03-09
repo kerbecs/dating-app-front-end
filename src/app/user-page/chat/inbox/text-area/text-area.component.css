@@ -1,0 +1,55 @@
+.text-div{
+  height: 6dvh;
+}
+.textarea{
+  height: 3.5dvh;
+
+}
+textarea{
+  resize: none;
+  width: 100%;
+  height: 3.5dvh;
+  border: none;
+  outline: none;
+  font-size: 2.25dvh;
+}
+.send-icon{
+  width: 5.5dvh;
+  height: 5.5dvh;
+}
+
+
+.mat-mdc-form-field {
+  --mdc-filled-text-field-caret-color: rgb(91, 91, 91);
+  --mdc-filled-text-field-focus-active-indicator-color: rgb(91, 91, 91);
+  --mdc-filled-text-field-focus-label-text-color: rgb(91, 91, 91);
+  --mdc-filled-text-field-container-color: white;
+
+  --mdc-filled-text-field-disabled-container-color: black;
+  --mdc-filled-text-field-label-text-color: rgb(128, 128, 128);
+  --mdc-filled-text-field-hover-label-text-color: rgb(128, 128, 128);
+  --mdc-filled-text-field-disabled-label-text-color: rgba(255, 255, 255, 0.38);
+  --mdc-filled-text-field-input-text-color: black;
+  --mdc-filled-text-field-disabled-input-text-color: rgba(255, 255, 255, 0.38);
+  --mdc-filled-text-field-input-text-placeholder-color: rgba(255, 255, 255, 0.6);
+  --mdc-filled-text-field-error-hover-label-text-color: #f44336;
+  --mdc-filled-text-field-error-focus-label-text-color: #f44336;
+  --mdc-filled-text-field-error-label-text-color: #f44336;
+  --mdc-filled-text-field-error-caret-color: #f44336;
+  --mdc-filled-text-field-active-indicator-color: rgba(255, 255, 255, 0.42);
+  --mdc-filled-text-field-disabled-active-indicator-color: rgba(255, 255, 255, 0.06);
+  --mdc-filled-text-field-hover-active-indicator-color: rgba(255, 255, 255, 0.87);
+  --mdc-filled-text-field-error-active-indicator-color: #f44336;
+  --mdc-filled-text-field-error-focus-active-indicator-color: #f44336;
+  --mdc-filled-text-field-error-hover-active-indicator-color: #f44336;
+}
+.emoji-img{
+  width: 2.5dvh;
+}
+.record-img{
+  width: 2.6dvh;
+}
+.upload-img{
+  width: 2.6dvh;
+}
+

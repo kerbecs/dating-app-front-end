@@ -1,0 +1,9 @@
+
+<div class="z-index text-center w-100 ">
+  <form class="text-center z-index w-100">
+    <div class="text-end">
+      <a class="bg-gray text-danger border-danger" role="button" routerLink="/user/map">X</a>
+    </div>
+    <app-menu-event *ngFor="let mapEvent of mapService.mapEvents" [mapEvent]="mapEvent"></app-menu-event>
+  </form>
+</div>

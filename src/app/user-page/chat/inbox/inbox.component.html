@@ -1,0 +1,16 @@
+<div class="row justify-content-center flex-wrap h-100">
+  <app-menu class="col-10 text-end" style="height: 1dvh"></app-menu>
+  <div class="col-xl-10 col-lg-11 col-md-12 inbox-area justify-content-center">
+    <div class="row mt-3 messages-section align-content-end">
+      <div class="h-100 w-100 overflow-y-scroll" #messagesContainer>
+        <app-message class="bg-transparent row mt-3 me-2 justify-content-end"
+                     *ngFor="let message of chatService.selectedUserMessages" [message]="message"></app-message>
+      </div>
+    </div>
+    <div
+      class="bg-transparent text-area-section row align-middle align-content-center align-items-center justify-content-center">
+      <app-text-area *ngIf="chatService.isAFriendSelected"
+                     class="col-lg-11 col-12 mt-3 w-100 text-center"></app-text-area>
+    </div>
+  </div>
+</div>

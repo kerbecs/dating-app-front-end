@@ -1,0 +1,11 @@
+.friends-menu{
+  height: 85%;
+  background-color: #333336;
+  border-radius: 15px;
+}
+
+
+.friend:hover:first-child{
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}

@@ -1,0 +1,24 @@
+<div class="row justify-content-center pt-3 pb-5" #mainContainer>
+  <div class="col-12 profile-container text-start" #profileContainer>
+      <div class="row align-content-end">
+        <div class="col-12 user-info">
+          <div class="row h-100 w-100 align-content-end">
+            <div class="col-12 mb-1 name">{{userProfile.firstName}} {{userProfile.lastName}}</div>
+            <div class="col-12 mb-2">
+              <div class="inline-block"
+                   [ngClass]="
+                   {'online-circle': userProfile.online,
+                   'offline-circle': !userProfile.online,
+                   }"></div>
+              <span class="ms-2">{{userProfile.online ? 'online' : 'offline'}}</span>
+            </div>
+            <div class="col-12">
+              <span><mat-icon role="button"> near_me</mat-icon></span>
+              <span><mat-icon class="ms-3" role="button">  chat</mat-icon></span>
+              <span><mat-icon class="ms-3" role="button" (click)="removeConnexion()"> delete</mat-icon></span>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

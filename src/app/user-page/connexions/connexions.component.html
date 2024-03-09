@@ -1,0 +1,11 @@
+<div class="container-fluid dvw-100 dvh-100 overflow-scroll">
+  <div class="container">
+    <div class="row mb-3 mt-1">
+      <app-user-profile
+        *ngFor="let connexion of connexionsProfiles"
+        [userProfile]="connexion"
+        class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12">
+      </app-user-profile>
+    </div>
+  </div>
+</div>

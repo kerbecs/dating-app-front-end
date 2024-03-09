@@ -1,0 +1,29 @@
+<form class="row w-100 align-middle align-content-center justify-content-center ms-2" [formGroup]="form">
+  <div class="col-11">
+    <div class="bg-white w-100 text-div rounded-pill">
+      <div class="row w-100 h-100 justify-content-center align-middle align-content-center">
+        <div class="col-1">
+          <img role=button class="emoji-img  ms-sm-2 ms-1" src="https://cdn-icons-png.flaticon.com/512/1500/1500458.png"/>
+        </div>
+        <div class="col-lg-10 col-9 textarea">
+          <textarea class="w-100" formControlName="textMessage"></textarea>
+        </div>
+        <div class="col-lg-1 col-2">
+          <img role="button" class="record-img" src="https://cdn.icon-icons.com/icons2/902/PNG/512/microphone_icon-icons.com_69348.png"/>
+          <img role="button" class="upload-img ms-sm-2 ms-1" src="https://icons.veryicon.com/png/o/business/office-icon-series/load-file.png">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-1">
+    <div class="send-icon" role="button">
+      <img class="img-fluid"
+           src="https://www.iconninja.com/files/148/341/227/telegram-send-chat-media-message-icon.svg"
+           alt="send"
+           (click)="onSendMessage()"
+      >
+    </div>
+  </div>
+</form>
+
+

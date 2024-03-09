@@ -1,0 +1,10 @@
+#main {
+  background-image: url('https://bintiguinetwork.com.br/login-page/nature.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden;
+  width: 100dvw;
+  height: 100dvh;
+}

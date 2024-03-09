@@ -1,0 +1,93 @@
+.list-group-item {
+  color: white;
+}
+
+main {
+  color: white;
+  height: 100dvh;
+}
+
+.button {
+  font-size: 2.6dvh;
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  background-color: rgb(9, 86, 124,0.95);
+  color: white !important;
+}
+a:hover, a:active, a:visited, a:link{
+  text-decoration: none;
+  text-transform: none;
+}
+.login{
+  transform: translateY(-1000%);
+  animation: linear;
+  animation-name: login-animation;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+  z-index: 2;
+}
+.register{
+  transform: translateY(1000%);
+  animation: linear;
+  animation-name: register-animation;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+  z-index: 2;
+}
+@-webkit-keyframes register-animation {
+  0% {
+    transform: translateY(1000%);
+  }
+  20%{
+    transform: translateY(800%);
+
+  }
+  40%{
+    transform: translateY(600%);
+
+  }
+  60%{
+    transform: translateY(400%);
+
+  }
+  80%{
+    transform: translateY(200%);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes login-animation {
+  0% {
+    transform: translateY(-1000%);
+  }
+  20%{
+    transform: translateY(-800%);
+
+  }
+  40%{
+    transform: translateY(-600%);
+
+  }
+  60%{
+    transform: translateY(-400%);
+
+  }
+  80%{
+    transform: translateY(-200%);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+
+.link{
+  transition:  font-size 0.3s, transform 0.4s;
+}
+
+.link:hover {
+  background-color: rgb(20, 85, 165, 1);
+  font-size: 1.3rem;
+  transform: scale(1.05);
+  transition:  font-size 0.3s, transform 0.4s;
+}
+

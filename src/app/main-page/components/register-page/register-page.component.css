@@ -1,0 +1,114 @@
+.mat-mdc-tab-group, .mat-mdc-tab-nav-bar{
+  --mat-tab-header-active-focus-label-text-color: rgb(20, 85, 165, 1);
+  --mat-tab-header-active-label-text-color : rgb(20, 85, 165, 1);
+  --mat-tab-header-inactive-label-text-color: black;
+  --mat-tab-header-inactive-focus-label-text-color: rgb(20, 85, 165, 1);
+  --mat-tab-header-inactive-hover-label-text-color : black;
+  --mdc-tab-indicator-active-indicator-color: rgb(20, 85, 165, 1);
+  --mat-tab-header-active-hover-label-text-color: rgb(128, 128, 128);
+  --mat-tab-header-active-ripple-color: rgb(128, 128, 128);
+  --mat-tab-header-inactive-ripple-color: rgb(128, 128, 128);
+  --mat-tab-header-active-focus-indicator-color: rgb(20, 85, 165, 1);
+  --mat-tab-header-active-hover-indicator-color: rgb(20, 85, 165, 1);
+}
+
+
+div {
+  --mdc-filled-text-field-caret-color: rgb(20, 85, 165, 1);
+  --mdc-filled-text-field-focus-active-indicator-color: rgb(20, 85, 165, 1);
+  --mdc-filled-text-field-focus-label-text-color: rgb(20, 85, 165, 1);
+  --mdc-filled-text-field-container-color: rgb(235, 245, 245);
+  --mdc-filled-text-field-disabled-container-color: rgb(20, 85, 165, 1);
+  --mdc-filled-text-field-label-text-color: rgba(0, 0, 0, .6);
+  --mdc-filled-text-field-hover-label-text-color: rgb(20, 85, 165, 1);
+  --mdc-filled-text-field-disabled-label-text-color: black;
+  --mdc-filled-text-field-input-text-color: black;
+  --mdc-filled-text-field-disabled-input-text-color: black;
+  --mdc-filled-text-field-input-text-placeholder-color: black;
+  --mdc-filled-text-field-error-hover-label-text-color: #f44336;
+  --mdc-filled-text-field-error-focus-label-text-color: #f44336;
+  --mdc-filled-text-field-error-label-text-color: #f44336;
+  --mdc-filled-text-field-error-caret-color: #f44336;
+  --mdc-filled-text-field-active-indicator-color: rgba(255, 255, 255, 0.42);
+  --mdc-filled-text-field-disabled-active-indicator-color: rgba(255, 255, 255, 0.06);
+  --mdc-filled-text-field-hover-active-indicator-color: rgba(255, 255, 255, 0.87);
+  --mdc-filled-text-field-error-active-indicator-color: #f44336;
+  --mdc-filled-text-field-error-focus-active-indicator-color: #f44336;
+  --mdc-filled-text-field-error-hover-active-indicator-color: #f44336;
+  --mdc-outlined-text-field-caret-color: #c2185b;
+  --mdc-outlined-text-field-focus-outline-color: #c2185b;
+  --mdc-outlined-text-field-focus-label-text-color: rgba(194, 24, 91, 0.87);
+  --mdc-outlined-text-field-label-text-color: rgba(255, 255, 255, 0.6);
+  --mdc-outlined-text-field-hover-label-text-color: rgba(255, 255, 255, 0.6);
+  --mdc-outlined-text-field-disabled-label-text-color: rgba(255, 255, 255, 0.38);
+  --mdc-outlined-text-field-input-text-color: rgba(255, 255, 255, 0.87);
+  --mdc-outlined-text-field-disabled-input-text-color: rgba(255, 255, 255, 0.38);
+  --mdc-outlined-text-field-input-text-placeholder-color: rgba(255, 255, 255, 0.6);
+  --mdc-outlined-text-field-error-caret-color: #f44336;
+  --mdc-outlined-text-field-error-focus-label-text-color: #f44336;
+  --mdc-outlined-text-field-error-label-text-color: #f44336;
+  --mdc-outlined-text-field-error-hover-label-text-color: #f44336;
+  --mdc-outlined-text-field-outline-color: rgba(255, 255, 255, 0.38);
+  --mdc-outlined-text-field-disabled-outline-color: rgba(255, 255, 255, 0.06);
+  --mdc-outlined-text-field-hover-outline-color: rgba(255, 255, 255, 0.87);
+  --mdc-outlined-text-field-error-focus-outline-color: #f44336;
+  --mdc-outlined-text-field-error-hover-outline-color: #f44336;
+  --mdc-outlined-text-field-error-outline-color: #f44336;
+  --mat-form-field-focus-select-arrow-color: rgba(194, 24, 91, 0.87);
+  --mat-form-field-disabled-input-text-placeholder-color: rgba(255, 255, 255, 0.38);
+  --mat-form-field-state-layer-color: rgba(255, 255, 255, 0.87);
+  --mat-form-field-error-text-color: #f44336;
+  --mat-form-field-select-option-text-color: rgba(0, 0, 0, 0.87);
+  --mat-form-field-select-disabled-option-text-color: rgba(0, 0, 0, 0.38);
+  --mat-form-field-leading-icon-color: unset;
+  --mat-form-field-disabled-leading-icon-color: unset;
+  --mat-form-field-trailing-icon-color: unset;
+  --mat-form-field-disabled-trailing-icon-color: unset;
+  --mat-form-field-error-focus-trailing-icon-color: unset;
+  --mat-form-field-error-hover-trailing-icon-color: unset;
+  --mat-form-field-error-trailing-icon-color: unset;
+  --mat-form-field-enabled-select-arrow-color: rgba(255, 255, 255, 0.54);
+  --mat-form-field-disabled-select-arrow-color: rgba(255, 255, 255, 0.38);
+  --mat-form-field-hover-state-layer-opacity: 0.08;
+  --mat-form-field-focus-state-layer-opacity: 0.24;
+
+  --mat-select-enabled-trigger-text-color: black;
+  --mat-select-disabled-trigger-text-color: black;
+  --mat-select-placeholder-text-color: rgba(255, 255, 255, 0.6);
+  --mat-select-enabled-arrow-color: rgba(255, 255, 255, 0.54);
+  --mat-select-disabled-arrow-color: rgba(255, 255, 255, 0.38);
+  --mat-select-focused-arrow-color: rgba(194, 24, 91, 0.87);
+  --mat-select-invalid-arrow-color: rgba(244, 67, 54, 0.87);
+  --mat-select-panel-background-color: red;
+}
+
+.label{
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+}
+.main-div{
+  height: 75%;
+}
+
+div.mat-mdc-select-panel .mat-mdc-option {
+  --mdc-list-list-item-container-color: red !important;
+}
+.next-button{
+  width: 7.5dvw;
+}
+
+@media only screen and (max-width: 768px) {
+  .main-div{
+    height: 87.5%;
+  }
+}
+.mat-mdc-tab-body-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  transition: height 500ms cubic-bezier(0.35, 0, 0.25, 1);
+  height: 100%;
+}
+.registered{
+  font-size: 1.4rem;
+}

@@ -1,0 +1,10 @@
+.mat-mdc-form-field {
+  width: 85%;
+}
+.main-text{
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+.z-index{
+  z-index: 7000;
+}

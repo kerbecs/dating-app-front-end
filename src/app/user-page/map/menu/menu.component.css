@@ -1,0 +1,10 @@
+.mat-mdc-fab.mat-primary {
+  --mdc-fab-container-color: #1FBCEC;
+  --mat-fab-foreground-color: #fff;
+  --mat-fab-state-layer-color: #fff;
+  --mat-fab-ripple-color: rgba(255, 255, 255, 0.1);
+}
+.z-index{
+  z-index: 5000;
+}
+

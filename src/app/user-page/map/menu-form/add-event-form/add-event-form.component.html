@@ -1,0 +1,38 @@
+<div class="z-index row justify-content-center align-items-center h-100">
+  <div class="col-12">
+    <form class="text-center z-index" [formGroup]="formGroup">
+      <p class="text-light main-text text-center mb-4">
+        Add your event
+      </p>
+      <mat-form-field>
+        <mat-label>Event type</mat-label>
+        <mat-select formControlName="eventType">
+          <mat-option *ngFor="let item of eventTypeList" [value]="item.id">{{item.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Who can see your event?</mat-label>
+        <mat-select formControlName="visibility">
+          <mat-option *ngFor="let item of visibilityList" [value]="item.id">{{item.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Description</mat-label>
+          <input matInput placeholder="About event" formControlName="description">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+      </p>
+      <div class="row justify-content-center">
+        <div class="col-5">
+          <button mat-flat-button class="bg-primary" [disabled]="formGroup.invalid || !userAddedMarker"
+                  (click)="sendForm()">Add event
+          </button>
+        </div>
+        <div class="col-4">
+          <button mat-flat-button color="primary" (click)="closeForm()">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

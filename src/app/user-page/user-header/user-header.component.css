@@ -1,0 +1,125 @@
+.header-container{
+  height: 7.5dvh;
+}
+.main{
+  overflow: hidden;
+}
+.menu-button{
+  width: 6dvh !important;
+  height: 6dvh !important;
+  font-size: 1rem;
+}
+ul{
+  list-style: none;
+}
+.mat-mdc-fab.mat-warn {
+  --mdc-fab-container-color: #1FBCEC;
+  --mat-fab-foreground-color: #fff;
+  --mat-fab-state-layer-color: #fff;
+  --mat-fab-ripple-color: rgba(255, 255, 255, 0.1);
+}
+.central-button{
+  font-size: 1rem;
+}
+.main-div{
+  width: 100dvw;
+  height: 100dvh;
+}
+.menu-icon{
+  transform: scaleX(2.1) scaleY(2.5);
+  color: white;
+}
+
+.mobile-menu{
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  transform: translate(100%);
+  z-index: 101;
+}
+
+.mobile-menu-open{
+  animation-name: mobile-menu-open;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+.mobile-menu-close{
+  animation-name: mobile-menu-close;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes mobile-menu-open {
+  0% {
+    transform: translate(100%);
+  }
+  25% {
+    transform: translate(75%);
+  }
+  50% {
+    transform: translate(50%);
+  }
+  75% {
+    transform: translate(25%);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+@keyframes mobile-menu-close {
+  0% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(25%);
+  }
+  50% {
+    transform: translate(50%);
+  }
+  75% {
+    transform: translate(75%);
+  }
+  100% {
+    transform: translate(100%);
+  }
+}
+@media screen and (max-width: 767px) {
+  .central-button{
+    margin-top: 2%;
+    border-radius: 20px;
+    width: 100%;
+    height: 7.5dvh !important;
+    background-color: #1FBCEC;
+  }
+  .menu-button{
+    width: 100% !important;
+    height: 7.5dvh !important;
+    border: 20px !important;
+    margin-top: 2%;
+  }
+  div{
+    --mdc-fab-container-shape: 20px;
+  }
+
+}
+
+.container-fluid{
+  overflow: hidden;
+}
+button {
+  --mat-badge-container-shape: 50%;
+  --mat-badge-container-size: unset;
+  --mat-badge-small-size-container-size: unset;
+  --mat-badge-large-size-container-size: unset;
+  --mat-badge-legacy-container-size: 20px;
+  --mat-badge-legacy-small-size-container-size: 16px;
+  --mat-badge-legacy-large-size-container-size: 28px;
+  --mat-badge-container-offset: 0 0;
+  --mat-badge-small-size-container-offset: 0 0;
+  --mat-badge-large-size-container-offset: 0 0;
+  --mat-badge-container-overlap-offset: -20px;
+  --mat-badge-small-size-container-overlap-offset: -8px;
+  --mat-badge-large-size-container-overlap-offset: -14px;
+  --mat-badge-container-padding: 0;
+  --mat-badge-small-size-container-padding: 0;
+  --mat-badge-large-size-container-padding: 0;
+}
