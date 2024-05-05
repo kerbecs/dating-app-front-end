@@ -39,4 +39,6 @@ html {
   --mdc-snackbar-container-color: #0d6efd;
   --mdc-snackbar-supporting-text-color: rgba(255, 255, 255, 0.87);
   --mat-snack-bar-button-color: black;
+  --mat-dialog-container-min-width: 25dvw !important;
+
 }

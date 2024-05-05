@@ -14,6 +14,7 @@ import {loginTokenSelector} from "../selector/login-token.selector";
 import {environment} from "../../../environments/environment";
 import {UserDataDto} from "../helper/user-data-dto";
 import {userDataAction} from "../action/user-data.action";
+import {userLocationAction} from "../action/user-location.action";
 
 @Injectable()
 export class LoginTokenEffect {
@@ -33,6 +34,7 @@ export class LoginTokenEffect {
               }
               const userDataDto = <UserDataDto>resp;
               this.store.dispatch(userDataAction(userDataDto))
+              this.store.dispatch(userLocationAction())
             },
             error: err => {
               this.store.dispatch(removeTokenFromStorage())

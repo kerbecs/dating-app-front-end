@@ -1,0 +1,84 @@
+<div class="text-center">
+  <h2 mat-dialog-title>Compatibility filter</h2>
+</div>
+<form [formGroup]="filterUserProfileService.filterForm" class="h-100 m-auto">
+  <mat-dialog-content class="row justify-content-center">
+    <div class="col-10">
+      <div>Age</div>
+      <mat-slider min="18" max="85" discrete>
+        <input value="18" matSliderStartThumb formControlName="minAge">
+        <input value="85" matSliderEndThumb formControlName="maxAge">
+      </mat-slider>
+    </div>
+    <div class="col-10">
+      <div>Max distance(km)</div>
+      <mat-slider min="0" max="500" discrete>
+        <input value="50" matSliderThumb formControlName="maxDistance">
+      </mat-slider>
+    </div>
+    <div class="col-10">
+      <div>Compatibility(%)</div>
+      <mat-slider min="0" max="100" discrete>
+        <input value="0" matSliderStartThumb formControlName="minCompatibility">
+        <input value="100" matSliderEndThumb formControlName="maxCompatibility">
+      </mat-slider>
+    </div>
+    <div class="col-10">
+      <div>Preferences</div>
+      <mat-form-field>
+        <mat-label>Preference</mat-label>
+        <mat-icon matSuffix> local_activity</mat-icon>
+        <mat-select multiple formControlName="preferenceList">
+          <mat-option *ngFor="let preference of preferenceList"
+                      [value]="preference">{{preference | enumFormat}} </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-10">
+      <div>Gender</div>
+      <mat-form-field>
+        <mat-label>Gender</mat-label>
+        <mat-icon matSuffix>wc</mat-icon>
+        <mat-select multiple formControlName="genderList">
+          <mat-option *ngFor="let gender of genderList" [value]="gender">{{gender | enumFormat}} </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-10">
+      <div>Education</div>
+      <mat-form-field>
+        <mat-label>Education</mat-label>
+        <mat-icon matSuffix>school</mat-icon>
+        <mat-select multiple formControlName="educationList">
+          <mat-option *ngFor="let education of educationList"
+                      [value]="education">{{education | enumFormat}} </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-10">
+      <div>Sexual orientation</div>
+      <mat-form-field>
+        <mat-label>Sexual orientation</mat-label>
+        <mat-icon matSuffix>supervisor_account</mat-icon>
+        <mat-select multiple formControlName="sexualOrientation">
+          <mat-option *ngFor="let sexualOrientation of sexualOrientationList"
+                      [value]="sexualOrientation">{{sexualOrientation | enumFormat}} </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-10">
+      <div>Race</div>
+      <mat-form-field>
+        <mat-label>Race</mat-label>
+        <mat-icon matSuffix>flag</mat-icon>
+        <mat-select multiple formControlName="raceList">
+          <mat-option *ngFor="let race of raceLit" [value]="race">{{race | enumFormat}} </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions class="m-auto">
+    <button mat-button (click)="onNoClick()">Close</button>
+    <button mat-button cdkFocusInitial (click)="onApplyFilters()">Apply</button>
+  </mat-dialog-actions>
+</form>

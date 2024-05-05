@@ -6,5 +6,6 @@ export const environment = {
   chatServiceWS: 'ws://localhost:8095/',
   chatService: 'http://localhost:8080/chat-service/',
   notificationService: 'http://localhost:8080/notification-service/',
-  notificationServiceWS: 'ws://localhost:8065/'
+  notificationServiceWS: 'ws://localhost:8065/',
+  toolService: 'http://localhost:8080/tool-service/'
 };

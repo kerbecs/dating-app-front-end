@@ -6,8 +6,11 @@
       </div>
     </div>
     <div class="row h-25 justify-content-end">
-      <div class="col-12 text-end">
-        <mat-icon class="alert-button mt-3" role="button">warning</mat-icon>
+      <div class="col-6 text-start">
+        <mat-icon class="alert-button mt-3 filter-button" role="button" (click)="openFilterDialog()">settings</mat-icon>
+      </div>
+      <div class="col-6 text-end">
+        <mat-icon class="alert-button mt-3" role="button" (click)="openReportDialog()">warning</mat-icon>
       </div>
     </div>
     <div class="row h-50 justify-content-end align-items-center">
@@ -22,13 +25,17 @@
             <p>
               <span class="user-name">{{userProfileService.selectedUserProfile?.firstName}}</span>
               <span class="age"> - {{userProfileService.selectedUserProfile?.birthDate | age}}Y</span>
+              <span class="compatibility ms-5" [ngStyle]="{
+              'color' : chooseCompatibilityColor()
+              }">
+                {{userProfileService.selectedUserProfile?.compatibility?.toFixed(0)}}%</span>
             </p>
             <div class="row align-items-center">
               <div class="col-1">
                 <mat-icon>location_on</mat-icon>
               </div>
               <div class="col">
-                <span class="location">{{userProfileService.selectedUserProfile?.countryCode | country}}, {{userProfileService.selectedUserProfile?.city}} (2km away)</span>
+                <span class="location">{{userProfileService.selectedUserProfile?.countryCode | country}}, {{userProfileService.selectedUserProfile?.city}} ({{userProfileService.selectedUserProfile?.distance?.toFixed(0)}}km away)</span>
               </div>
             </div>
           </div>

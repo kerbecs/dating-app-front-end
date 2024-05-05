@@ -5,7 +5,10 @@ import {UserProfileDto} from "../../helper/user-profile-dto";
 import {AgePipe} from "../../pipe/age-pipe";
 import {CountryPipe} from "../../pipe/country-pipe";
 import {MatProgressSpinner} from "@angular/material/progress-spinner";
-import {NgIf} from "@angular/common";
+import {NgClass, NgIf, NgStyle} from "@angular/common";
+import {MatDialog} from "@angular/material/dialog";
+import {FilterDialogComponent} from "./dialog/filter-dialog/filter-dialog.component";
+import {ReportDialogComponent} from "./dialog/report-dialog/report-dialog.component";
 
 @Component({
   selector: 'app-user-profile',
@@ -15,7 +18,9 @@ import {NgIf} from "@angular/common";
     AgePipe,
     CountryPipe,
     MatProgressSpinner,
-    NgIf
+    NgIf,
+    NgClass,
+    NgStyle
   ],
   templateUrl: './user-profile.component.html',
   styleUrl: './user-profile.component.css'
@@ -24,17 +29,40 @@ export class UserProfileComponent implements AfterViewInit{
   @ViewChild('imgContainer')
   private imgContainerRef? : ElementRef;
 
-  constructor(public userProfileService : UserProfileService, private renderer : Renderer2) {
+  constructor(public userProfileService : UserProfileService, private renderer : Renderer2, public dialog: MatDialog) {
     this.userProfileService.selectedUserProfileSubject.subscribe(resp => {
       this.setProfileImage();
     })
+
   }
   setProfileImage(){
     if(!this.imgContainerRef || !this.userProfileService.selectedUserProfile) return;
-    this.renderer.setStyle(this.imgContainerRef.nativeElement,'background-image', `url(${this.userProfileService.selectedUserProfile?.imgUrl})`)
+    this.renderer.setStyle(this.imgContainerRef.nativeElement,'background-image', `url(${this.userProfileService.selectedUserProfile.imgUrl})`)
   }
 
   ngAfterViewInit(): void {
     this.setProfileImage()
   }
+  openFilterDialog(): void {
+    const dialogRef = this.dialog.open(FilterDialogComponent, {
+      data: {},
+    });
+  }
+  openReportDialog(): void {
+    const dialogRef = this.dialog.open(ReportDialogComponent, {
+      data: {},
+    });
+  }
+  public chooseCompatibilityColor(){
+    const number = this.userProfileService.selectedUserProfile?.compatibility;
+
+    if(!number || isNaN(number)) return 'white';
+
+    if(number <= 15) return 'red';
+    else if(number <= 50) return 'orange'
+    else if(number <= 75) return 'yellow'
+    else return 'green'
+
+  }
+
 }

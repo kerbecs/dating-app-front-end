@@ -28,9 +28,9 @@
       <div class="row align-items-center justify-content-center mt-md-0 ">
         <div class="col-xl-3 col-lg-4 col-md-4 text-center">
           <button [matMenuTriggerFor]="notifications" mat-fab color="warn" class="menu-button"
-                  aria-label="Example icon button with a home icon">
-            <mat-icon *ngIf="notificationService.notifications.length == 0">notifications</mat-icon>
-            <mat-icon *ngIf="notificationService.notifications.length > 0">notifications_active</mat-icon>
+                  aria-label="Example icon button with a home icon" (click)="notificationService.readAllNotifications()">
+            <mat-icon *ngIf="!notificationService.notificationActive">notifications</mat-icon>
+            <mat-icon *ngIf="notificationService.notificationActive">notifications_active</mat-icon>
           </button>
           <mat-menu #notifications="matMenu" class="overflow-hidden">
             <div class="row justify-content-center align-middle align-middle"
@@ -60,7 +60,7 @@
             <mat-icon>person</mat-icon>
           </button>
           <mat-menu #account="matMenu">
-            <button mat-menu-item>Profile</button>
+            <button mat-menu-item routerLink="/user/profile">Profile</button>
             <button mat-menu-item>Settings</button>
             <button mat-menu-item (click)="userHeaderService.logout()">Logout</button>
           </mat-menu>
@@ -97,7 +97,7 @@
             <mat-icon matSuffix>person</mat-icon>
           </button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item>Profile</button>
+            <button mat-menu-item routerLink="/user/profile">Profile</button>
             <button mat-menu-item>Settings</button>
             <button mat-menu-item>Logout</button>
           </mat-menu>

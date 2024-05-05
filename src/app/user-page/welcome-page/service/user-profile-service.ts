@@ -15,6 +15,7 @@ import {addConnexionAction} from "../../../state/action/connexions-profiles.acti
 export class UserProfileService{
   public selectedIndex = 0;
   public userProfilesList : UserProfileDto[] = [];
+  public filteredUserProfileList : UserProfileDto[] = [];
   public selectedUserProfileSubject = new Subject<void>();
   public userData! : UserDataDto | null;
   public selectedUserProfile? : UserProfileDto;
@@ -40,15 +41,21 @@ export class UserProfileService{
           error: it => {this.showSnackBar('Error when adding user')}
         });
   }
-  nextUserProfile(){
-    if(this.userProfilesList.length == 0) return;
-
-    if(this.userProfilesList.length > this.selectedIndex + 1) this.selectedIndex++;
-    else this.selectedIndex--;
-    this.selectedUserProfile = this.userProfilesList[this.selectedIndex];
+  resetSelectedIndex(){
+    if(this.filteredUserProfileList.length == 0 ) return;
+    this.selectedIndex = 0;
+    this.selectedUserProfile = this.filteredUserProfileList[this.selectedIndex];
     this.selectedUserProfileSubject.next();
   }
-  private getUsersProfiles(){
+  nextUserProfile(){
+    if(this.filteredUserProfileList.length == 0 || this.filteredUserProfileList.length == 1) return;
+
+    if(this.filteredUserProfileList.length > this.selectedIndex + 1) this.selectedIndex++;
+    else this.selectedIndex--;
+    this.selectedUserProfile = this.filteredUserProfileList[this.selectedIndex];
+    this.selectedUserProfileSubject.next();
+  }
+  public getUsersProfiles(){
     this.http.get(environment.userService+'user-profile')
       .subscribe(resp => {
         this.userProfilesList = <UserProfileDto[]> resp;
@@ -60,13 +67,62 @@ export class UserProfileService{
             return !this.userData.userProfileDto.connexions.includes(userProfile.userId)
           })
 
-        this.selectedUserProfile = this.userProfilesList[0];
+        this.filteredUserProfileList = this.userProfilesList;
+
+        this.selectedUserProfile = this.filteredUserProfileList[0];
         this.usersLoaded = true;
+        this.getUsersCompatibility();
+        this.getUsersDistance();
         this.selectedUserProfileSubject.next();
+
       })
   }
   private showSnackBar(message : string){
     this.snackBar.open(message,'Close',{duration: 2000})
+  }
+  private getUsersCompatibility(){
+    this.userProfilesList
+      .forEach(profile => {
+        this.http.get(environment.compatibilityService+'compatibility-rate/'+profile.userId+'/'+this.userData?.userId)
+          .subscribe(resp => profile.compatibility = <number> resp);
+      })
+  }
+  private getUsersDistance(){
+    let [x,y] = [0,0];
+      navigator.geolocation.getCurrentPosition(position => {
+        x = position.coords.latitude;
+        y = position.coords.longitude;
+
+        this.userProfilesList.forEach(profile => {
+          console.log(profile.coords)
+          if(profile.coords && profile.coords.x && profile.coords.y){
+            profile.distance = this.distanceBetweenPoints(x,y,profile.coords.x, profile.coords.y);
+          }
+        })
+      })
+
+  }
+  private distanceBetweenPoints(lat1 : number, lon1 : number, lat2 : number, lon2 : number) {
+    console.log(lat1+" "+lon1)
+    console.log(lat2+" "+lon2)
+    if ((lat1 == lat2) && (lon1 == lon2)) {
+      return 0;
+    }
+    else {
+      const radlat1 = Math.PI * lat1 / 180;
+      const radlat2 = Math.PI * lat2/180;
+      const theta = lon1-lon2;
+      const radtheta = Math.PI * theta/180;
+      let dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+      if (dist > 1) {
+        dist = 1;
+      }
+      dist = Math.acos(dist);
+      dist = dist * 180/Math.PI;
+      dist = dist * 60 * 1.1515;
+      dist = dist * 1.609344
+      return dist;
+    }
   }
 
 

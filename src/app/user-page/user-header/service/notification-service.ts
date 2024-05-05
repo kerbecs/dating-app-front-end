@@ -12,6 +12,7 @@ import {environment} from "../../../../environments/environment";
 export class NotificationService{
   public notifications : NotificationDto[] = [];
   private userData! : UserDataDto;
+  public notificationActive = false;
   constructor(private store : Store<storeType>, private http : HttpClient) {
     store.select(userDataSelector)
       .subscribe(userData => {
@@ -23,11 +24,20 @@ export class NotificationService{
 
   public addNotification(notification : NotificationDto){
     this.notifications.unshift(notification);
+    this.notificationActive = true;
+  }
+  public readAllNotifications(){
+    console.log('read')
+    this.http.put(environment.notificationService+'notification/readNotification/'+this.userData.userId,{})
+      .subscribe(resp => {
+        this.getActivesNotification();
+      })
   }
   private getActivesNotification(){
     this.http.get(environment.notificationService+'notification/'+this.userData.userId)
       .subscribe(resp => {
         this.notifications.push(...<NotificationDto[]>resp);
+        this.notificationActive = Boolean((<NotificationDto[]>resp).length);
       })
   }
 }

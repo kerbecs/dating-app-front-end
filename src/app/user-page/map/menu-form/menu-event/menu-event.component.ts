@@ -2,12 +2,14 @@ import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import {MapEvent} from "../../helper/map-event";
 import {MapService} from "../../service/map.service";
 import {ActivatedRoute, RouterLink} from "@angular/router";
+import {EnumFormatPipe} from "../../../pipe/enum-format.pipe";
 
 @Component({
   selector: 'app-menu-event',
   standalone: true,
   imports: [
     RouterLink,
+    EnumFormatPipe,
   ],
   templateUrl: './menu-event.component.html',
   styleUrl: './menu-event.component.css'

@@ -10,10 +10,10 @@ export class FormControlService {
     private _matGroupIndex = 0;
 
     private generalInfo = {
-        firstName: new FormControl(null, [Validators.required, Validators.pattern('^[a-zA-z\-\s]{2,20}$')]),
-        lastName: new FormControl(null, [Validators.required, Validators.pattern('^[a-zA-z\-\s]{2,20}$')]),
+        firstName: new FormControl(null, [Validators.required, Validators.pattern('^[a-zA-z\\-\\s]{2,20}$')]),
+        lastName: new FormControl(null, [Validators.required, Validators.pattern('^[a-zA-z\\-\\s]{2,20}$')]),
         country: new FormControl(null, [Validators.required]),
-        city: new FormControl(null, [Validators.required, Validators.pattern("^[a-zA-Z\-\s_0-9]{2,40}$")]),
+        city: new FormControl(null, [Validators.required, Validators.pattern("^[a-zA-Z\\-\\s_0-9]{2,40}$")]),
         gender: new FormControl(null, [Validators.required]),
         birthDate: new FormControl(null, [Validators.required, this.ageValidator])
     }

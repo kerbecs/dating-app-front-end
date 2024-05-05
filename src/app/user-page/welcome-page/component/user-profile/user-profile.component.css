@@ -61,3 +61,10 @@
   --mdc-circular-progress-active-indicator-color: #1fa7d2;
   backdrop-filter: blur(12px);
 }
+.filter-button{
+  color: #1fa7d2;
+  transform: scale(150%);
+}
+.compatibility{
+  font-size: 1.5rem;
+}
