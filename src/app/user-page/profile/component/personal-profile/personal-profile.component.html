@@ -1,0 +1,92 @@
+<div class="container">
+  <form class="row mt-4 justify-content-center align-items-center" [formGroup]="personalProfileService.personalProfileForm">
+    <div class="col-md-6 col-12 mt-3 text-center">
+      <mat-form-field [style.width.%]="90">
+        <mat-label>First name</mat-label>
+        <mat-icon matSuffix>person_outline</mat-icon>
+        <input matInput required formControlName="firstName">
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 col-12 mt-3 text-center">
+      <mat-form-field [style.width.%]="90">
+        <mat-label>Last name</mat-label>
+        <input matInput required formControlName="lastName">
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 col-12 mt-3 text-center">
+      <mat-form-field [style.width.%]="90">
+        <mat-label>Country</mat-label>
+        <mat-icon matSuffix>language</mat-icon>
+        <mat-select formControlName="country">
+          <mat-option *ngFor="let country of countryList" [value]="country.code">{{country.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 col-12 mt-3 text-center">
+      <mat-form-field [style.width.%]="90">
+        <mat-label>City</mat-label>
+        <mat-icon matSuffix>location_city</mat-icon>
+        <input required matInput formControlName="city">
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 col-12  mt-3 text-center">
+      <mat-radio-group [style.width.%]="100" aria-label="Select an option" formControlName="gender">
+        <mat-radio-button value="MALE">Male</mat-radio-button>
+        <mat-radio-button value="FEMALE">Female</mat-radio-button>
+        <mat-radio-button value="TRANSGENDER">Transgender</mat-radio-button>
+        <mat-radio-button value="OTHER">Other</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <div class="col-md-6 col-12  mt-3 text-center">
+      <mat-form-field [style.width.%]="90">
+        <mat-label>Date of birth</mat-label>
+        <input matInput required [matDatepicker]="dp" formControlName="birthDate">
+        <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
+        <mat-datepicker #dp
+                        startView="multi-year"
+                        panelClass="example-month-picker"
+        >
+        </mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 col-12 mt-3 text-center">
+      <mat-form-field [style.width.%]="90">
+        <mat-label>Education</mat-label>
+        <mat-icon matSuffix>school</mat-icon>
+
+        <mat-select multiple formControlName="educationList">
+          <mat-option *ngFor="let education of educationList"
+                      [value]="education">{{education | enumFormat}} </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 col-12 mt-3 text-center">
+      <mat-form-field [style.width.%]="90">
+        <mat-label>Sexual orientation</mat-label>
+        <mat-icon matSuffix>supervisor_account</mat-icon>
+        <mat-select formControlName="sexualOrientation">
+          <mat-option *ngFor="let sexualOrientation of sexualOrientationList"
+                      [value]="sexualOrientation">{{sexualOrientation | enumFormat}} </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 col-12 mt-3 text-center">
+      <mat-form-field [style.width.%]="90">
+        <mat-label>Race</mat-label>
+        <mat-icon matSuffix>flag</mat-icon>
+        <mat-select formControlName="race">
+          <mat-option *ngFor="let race of raceLit" [value]="race">{{race | enumFormat}} </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6 col-12 mt-3 text-center">
+    </div>
+    <div class="col-3">
+      <button class="btn btn-primary w-100" [disabled]="!enableSaveButton()" (click)="personalProfileService.updateProfileData()">
+        Save data
+      </button>
+    </div>
+  </form>
+</div>

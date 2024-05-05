@@ -1,0 +1,30 @@
+.main{
+  width: 100dvw;
+  height: 92.5dvh;
+  overflow: hidden;
+}
+
+.menu-button{
+  width: 8dvh ;
+  height: 8dvh;
+}
+.icon{
+  font-size: 1.8rem;
+}
+.mat-mdc-fab.mat-warn {
+  --mdc-fab-container-color: #1FBCEC;
+  --mat-fab-foreground-color: #fff;
+  --mat-fab-state-layer-color: #fff;
+  --mat-fab-ripple-color: rgba(255, 255, 255, 0.1);
+}
+.heard{
+  color: red;
+}
+.mat-icon {
+  height: 28px;
+  width: 28px;
+}
+
+.menu-button:hover{
+  transform: scale(110%);
+}

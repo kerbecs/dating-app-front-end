@@ -1,0 +1,20 @@
+* {
+  --mat-expansion-container-background-color: #3B71CA;
+  --mat-expansion-container-text-color: white;
+  --mat-expansion-actions-divider-color: rgba(255, 255, 255, 0.12);
+  --mat-expansion-header-hover-state-layer-color: rgba(255, 255, 255, 0.04);
+  --mat-expansion-header-focus-state-layer-color: rgba(255, 255, 255, 0.04);
+  --mat-expansion-header-disabled-state-text-color: rgba(255, 255, 255, 0.3);
+  --mat-expansion-header-text-color: white;
+  --mat-expansion-header-description-color: rgba(255, 255, 255, 0.7);
+  --mat-expansion-header-indicator-color: rgba(255, 255, 255, 0.7);
+  --mat-expansion-container-shape: 15px;
+
+}
+.mat-accordion .mat-expansion-panel:not(.mat-expanded), .mat-accordion .mat-expansion-panel:not(.mat-expansion-panel-spacing) {
+  border-radius: var(--mat-expansion-container-shape);
+}
+
+mat-icon{
+  color: black;
+}

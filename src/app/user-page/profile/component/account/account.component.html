@@ -1,0 +1,67 @@
+<div class="container-fluid">
+  <div class="row mt-4 justify-content-center flex-column align-items-center">
+    <div class="col-8 text-center">
+      <span class="h4">Change your account's data</span>
+    </div>
+    <div class="col-lg-8 col-md-10 col-sm-11 col-12 mt-4">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Change your email address
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <form class="row justify-content-center flex-column align-items-center" [formGroup]="accountService.emailForm">
+            <div class="col-md-10 col-11">
+              <mat-form-field [style.width.%]="100">
+                <mat-label>Enter your email</mat-label>
+                <mat-icon matSuffix>email</mat-icon>
+                <input aria-autocomplete="none" autocomplete="off" matInput required formControlName="email">
+              </mat-form-field>
+            </div>
+            <div class="col-lg-4 col-md-5 col-sm-7 col-10">
+              <button class="btn btn-light w-100" [disabled]="!accountService.enableChangeEmailButton()">
+                Change email
+              </button>
+            </div>
+          </form>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false" class="mt-3">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Change your password
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div>
+            <div class="row justify-content-center flex-column align-items-center" [formGroup]="accountService.newPasswordForm">
+              <div class="col-md-10 col-11">
+                <mat-form-field [style.width.%]="100">
+                  <mat-label>
+                    Enter your new Password
+                  </mat-label>
+                  <mat-icon matSuffix>lock</mat-icon>
+                  <input autocomplete="new-password" matInput required type="password" formControlName="password">
+                </mat-form-field>
+              </div>
+              <div class="col-md-10 col-11">
+                <mat-form-field [style.width.%]="100">
+                  <mat-label>
+                    Repeat your Password
+                  </mat-label>
+                  <mat-icon matSuffix>lock</mat-icon>
+                  <input autocomplete="new-password" matInput required type="password" formControlName="repeatedPassword">
+                </mat-form-field>
+              </div>
+              <div class="col-lg-5 col-md-6 col-sm-7 col-10">
+                <button class="btn btn-light w-100" (click)="accountService.changePassword()" [disabled]="!accountService.enableChangePasswordButton()">
+                  Change password
+                </button>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>

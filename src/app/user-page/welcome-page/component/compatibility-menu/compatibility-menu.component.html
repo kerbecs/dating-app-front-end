@@ -1,0 +1,26 @@
+<div class="row justify-content-center pt-2 me-1 align-items-center align-middle">
+  <div class="col-10 col-md-9">
+    <div class="row justify-content-center">
+      <div class="col-xl-1 m-xl-2 col-lg-2 col-md-2 col-sm-3 col-2 text-center">
+        <button mat-fab color="warn" class="menu-button" aria-label="Example icon button with a home icon" (click)="sendAction(UserMatchAction.LOVE)">
+          <mat-icon class="icon heard" role="button">favorite</mat-icon>
+        </button>
+      </div>
+      <div class="col-xl-1 m-xl-2 col-lg-2 col-md-2 col-sm-3 col-2 text-center">
+        <button mat-fab color="warn" class="menu-button" aria-label="Example icon button with a home icon" (click)="sendAction(UserMatchAction.ADD)">
+          <mat-icon class="icon text-primary" role="button">add</mat-icon>
+        </button>
+      </div>
+      <div class="col-xl-1 m-xl-2 col-lg-2 col-md-2 col-sm-3 col-2 text-center">
+        <button mat-fab color="warn" class="menu-button" aria-label="Example icon button with a home icon" (click)="sendAction(UserMatchAction.LIKE)">
+          <mat-icon class="icon" role="button">thumb_up_alt</mat-icon>
+        </button>
+      </div>
+      <div class="col-xl-1 m-xl-2 col-lg-2-1 col-md-2 col-sm-3 col-2 text-center">
+        <button mat-fab color="warn" class="menu-button" aria-label="Example icon button with a home icon" (click)="sendAction(UserMatchAction.REJECT)">
+          <mat-icon class="icon text-danger" role="button">close</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

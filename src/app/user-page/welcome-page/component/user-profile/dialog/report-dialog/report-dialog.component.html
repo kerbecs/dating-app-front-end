@@ -1,0 +1,26 @@
+<div class="text-center">
+  <h2 mat-dialog-title>Report user</h2>
+</div>
+<mat-dialog-content class="row justify-content-center">
+  <div class="col-10">
+    <div>Reasons</div>
+    <mat-form-field>
+      <mat-label>Reasons</mat-label>
+      <mat-select multiple>
+        <mat-option *ngFor="let reportReason of reportReasonList"
+                    [value]="reportReason">{{reportReason| enumFormat}} </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <div>More information</div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Give us more information</mat-label>
+      <textarea matInput placeholder="..."></textarea>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions class="m-auto">
+  <button mat-button (click)="onNoClick()">Close</button>
+  <button mat-button cdkFocusInitial>Send</button>
+</mat-dialog-actions>

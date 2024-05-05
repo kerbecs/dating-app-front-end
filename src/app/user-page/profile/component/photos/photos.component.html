@@ -1,0 +1,14 @@
+<div class="container mt-4">
+  <div class="row align-bottom align-items-end">
+    <form class="mb-3 col-6" [formGroup]="photoService.addPhotoForm">
+      <label for="formFile" class="form-label">Add a new photo</label>
+      <input class="form-control" type="file" id="formFile" formControlName="photo" (change)="photoService.addPhoto($event)">
+    </form>
+    <div class="col-3 mb-3">
+      <button class="btn btn-primary" [disabled]="!photoService.enableAddPhotoButton()" (click)="photoService.savePhoto()">Add</button>
+    </div>
+  </div>
+  <div class="row">
+      <app-photo class="col-4" *ngFor="let image of photoService.userData?.userProfileDto?.images" [img-url]="image"></app-photo>
+    </div>
+</div>
