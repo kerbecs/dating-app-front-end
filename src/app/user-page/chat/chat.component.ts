@@ -28,7 +28,7 @@ import {DatePipe} from "./pipe/date.pipe";
 export class ChatComponent {
   constructor(public elementsControlService: ElementsControlService, private breakpointObserver: BreakpointObserver) {
     this.breakpointObserver.observe([
-      "(min-width: 576px)"
+      "(min-width: 768px)"
     ]).subscribe((result: BreakpointState) => {
       if (result.matches) {
         elementsControlService.displayFriendsList = true;

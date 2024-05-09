@@ -6,8 +6,8 @@
 
 }
 .message-img-profile {
-  width: 5dvh;
-  height: 5dvh;
+  width: 6dvh;
+  height: 6dvh;
   background-size: cover;
   background-position: center;
   border-radius: 50%;
@@ -53,9 +53,6 @@
   width: 95%;
 }
 @media only screen and (max-width: 576px){
-  .message-img-profile {
-    width: 75% !important;
-  }
   .inbox-area {
     height: 87.5%;
     width: 97.5%;

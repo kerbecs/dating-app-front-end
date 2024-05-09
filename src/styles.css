@@ -46,3 +46,6 @@ html {
 .h-90{
   height: 90%;
 }
+.cdk-overlay-pane {
+  overflow-y: scroll !important;
+}

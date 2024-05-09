@@ -13,7 +13,37 @@
   transition: transform 0.5s;
 }
 .selected{
-  width: 17.5dvw !important;
-  height: 17.5dvw !important;
+  transform: scale(110%);
   border: 5px solid gold;
+}
+@media screen and (width  < 576px) {
+  #main{
+    width: 65dvw;
+    height: 65dvw;
+  }
+}
+@media screen and (min-width: 576px) {
+  #main{
+    width: 50dvw;
+    height: 50dvw;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #main{
+    width: 25dvw;
+    height: 25dvw;
+  }
+}
+@media screen and (min-width: 992px) {
+  #main{
+    width: 20dvw;
+    height: 20dvw;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #main{
+    width: 20dvw;
+    height: 20dvw;
+  }
 }

@@ -5,6 +5,7 @@ import {NgClass} from "@angular/common";
 import {Message} from "../../helper/Message";
 import {DatePipe} from "../../pipe/date.pipe";
 import {LastMessagePipe} from "../../pipe/last-message.pipe";
+import {ElementsControlService} from "../../service/elements-control.service";
 
 @Component({
   selector: 'app-friend',
@@ -25,7 +26,7 @@ export class FriendComponent implements AfterViewInit{
   private container! : ElementRef;
   @ViewChild('imgContainer')
   private imgContainer! : ElementRef;
-  constructor(public chatService : ChatService, private renderer : Renderer2) {
+  constructor(public chatService : ChatService, private renderer : Renderer2, private elementControlService : ElementsControlService) {
     chatService.newMessageSubject.subscribe(message => {
       if(message.senderId == this.userProfile.userId){
         renderer.addClass(this.container.nativeElement,'new-message')
@@ -39,6 +40,8 @@ export class FriendComponent implements AfterViewInit{
     this.chatService.isAFriendSelected = true;
     this.chatService.scrollSubject.next();
     this.renderer.removeClass(this.container.nativeElement,'new-message')
+    this.elementControlService.hideFriendsListMobile();
+
   }
 
   ngAfterViewInit(): void {

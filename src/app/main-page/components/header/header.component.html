@@ -4,22 +4,22 @@
     <div class="row justify-content-center align-content-center gap-3 align-middle h-75 flex-wrap">
       <div class="col-10 w-75 bg-light menu-button border border-success rounded-pill">
         <div class="row h-100 align-items-center text-center">
-          <div role="button" routerLink="/">Home</div>
+          <div role="button" routerLink="/" (click)="closeMenu()">Home</div>
         </div>
       </div>
       <div class="col-10 w-75 bg-light menu-button border border-success rounded-pill">
         <div class="row h-100 align-items-center text-center">
-          <div role="button" routerLink="/about">About</div>
+          <div role="button" routerLink="/about" (click)="closeMenu()">About</div>
         </div>
       </div>
       <div class="col-10 w-75 bg-light menu-button border border-success rounded-pill">
         <div class="row h-100 align-items-center text-center">
-          <div role="button" routerLink="/rules">Rules</div>
+          <div role="button" routerLink="/rules" (click)="closeMenu()">Rules</div>
         </div>
       </div>
       <div class="col-10 w-75 bg-light menu-button border border-success rounded-pill">
         <div class="row h-100 align-items-center text-center">
-          <div role="button"  routerLink="/login">Connect</div>
+          <div role="button"  routerLink="/login" (click)="closeMenu()">Connect</div>
         </div>
       </div>
     </div>
@@ -50,23 +50,23 @@
 
   <div class="col-xl-6 col-lg-5 col-md-4 d-none  d-sm-none d-md-block d-lg-block d-xl-block">
     <ul class="list-group list-group-horizontal flex-nowrap ">
-      <li class="list-group-item bg-transparent border-0" role="button" routerLink="/" (click)="closeMenu()">
+      <li class="list-group-item bg-transparent border-0" role="button" routerLink="/">
         <span>Home</span>
       </li>
-      <li class="list-group-item bg-transparent border-0" role="button" routerLink="/about" (click)="closeMenu()">
+      <li class="list-group-item bg-transparent border-0" role="button" routerLink="/about">
         <span>About</span>
       </li>
-      <li class="list-group-item bg-transparent border-0" role="button" routerLink="/rules" (click)="closeMenu()">
+      <li class="list-group-item bg-transparent border-0" role="button" routerLink="/rules">
         <span>Rules</span>
       </li>
     </ul>
   </div>
   <div class="col-xl-5 col-lg-5 col-md-6 d-none d-sm-none d-md-block d-lg-block d-xl-block">
     <ul class="list-group list-group-horizontal flex-nowrap justify-content-end me-lg-5 ms-md-5">
-      <li class="list-group-item bg-transparent border-0" role="button" (click)="closeMenu()">
+      <li class="list-group-item bg-transparent border-0" role="button" >
         <span>Language</span>
       </li>
-      <li class="list-group-item bg-transparent border-0" role="button" (click)="closeMenu()" routerLink="/login">
+      <li class="list-group-item bg-transparent border-0" role="button"  routerLink="/login">
         <span>Connect</span>
       </li>
     </ul>

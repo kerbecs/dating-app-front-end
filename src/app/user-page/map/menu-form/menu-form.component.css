@@ -33,6 +33,9 @@
     width: 100dvw !important;
     margin-top: 47dvh;
   }
+  .events-menu{
+    overflow-y: scroll;
+  }
 }
 @media screen and (min-width: 769px) {
   .menu-form{

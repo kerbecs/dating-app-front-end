@@ -16,6 +16,7 @@ import {NotificationWebSocketService} from "../websocket/notification-web-socket
   styleUrl: './user-page.component.css'
 })
 export class UserPageComponent {
+  public showFriendList = true;
   constructor(private webSocketService : MessageWebSocketService, private notificationWebSocketService : NotificationWebSocketService) {
   }
 

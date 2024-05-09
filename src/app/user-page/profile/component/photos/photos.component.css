@@ -2,9 +2,37 @@
   min-height: 100dvh !important;
 }
 #profileImg{
-  width: 20dvw;
-  height: 20dvw;
   background-position: center;
   background-size: cover;
 }
+@media screen and (width  < 576px) {
+  #profileImg {
+    width: 55dvw;
+    height: 55dvw;
+  }
+}
+@media screen and (min-width: 576px) {
+  #profileImg {
+    width: 40dvw;
+    height: 40dvw;
+  }
+}
 
+@media screen and (min-width: 768px) {
+  #profileImg {
+    width: 30dvw;
+    height: 30dvw;
+  }
+}
+@media screen and (min-width: 992px) {
+  #profileImg {
+    width: 25dvw;
+    height: 25dvw;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #profileImg {
+    width: 20dvw;
+    height: 20dvw;
+  }
+}
