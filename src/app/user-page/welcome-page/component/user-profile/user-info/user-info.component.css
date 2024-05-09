@@ -1,0 +1,23 @@
+.user-info-container{
+  backdrop-filter: blur(40px);
+  z-index: 1000;
+  width: 47.5dvh;
+  height: 74dvh;
+  background-color: rgba(54, 54, 54, 0.5);
+}
+
+.closed{
+  transform: translateY(74dvh) !important;
+  transition: transform 0.75s;
+}
+.opened{
+  transform: translateY(0) !important;
+  transition: transform 0.75s;
+}
+*{
+  font-size: 1.2rem;
+}
+.name{
+  font-size: 1.5rem !important;
+  font-weight: bold;
+}

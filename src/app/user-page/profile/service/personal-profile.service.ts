@@ -86,7 +86,6 @@ export class PersonalProfileService {
   }
 
   private initializeFormData(){
-    console.log(this.userData)
     this.personalProfileForm.setValue({
       firstName: this.userData?.userProfileDto?.firstName || '',
       lastName: this.userData?.userProfileDto?.lastName || '',

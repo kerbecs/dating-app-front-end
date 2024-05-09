@@ -35,7 +35,6 @@ export class UserProfileComponent implements AfterViewInit{
   }
 
   ngAfterViewInit(): void {
-    console.log(this.userProfile)
     this.renderer.setStyle(this.profileContainer.nativeElement,'background-image',`url('${this.userProfile?.imgUrl}')`)
   }
   public removeConnexion(){

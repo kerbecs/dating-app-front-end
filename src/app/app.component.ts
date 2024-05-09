@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.token$.subscribe((token) => {
       if (!token) {
-        if(this.location.path()=='/register' || this.location.path()=='/login' || this.location.path().includes('validate-email') || this.location.path().includes('reset')){
+        if(this.location.path()=='/register' || this.location.path()=='/login' ||this.location.path()=='/rules'  || this.location.path()=='/about'  || this.location.path().includes('validate-email') || this.location.path().includes('reset')){
          this.router.navigate([this.location.path()])
         }
         else {

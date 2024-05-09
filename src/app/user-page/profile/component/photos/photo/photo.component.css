@@ -1,6 +1,19 @@
-#main{
+#main, #profileImg{
   width: 15dvw;
   height: 15dvw;
   background-position: center;
   background-size: cover;
+}
+.mat-icon{
+  transform: scale(115%);
+  transition: transform 0.5s;
+}
+.mat-icon:hover{
+  transform: scale(130%);
+  transition: transform 0.5s;
+}
+.selected{
+  width: 17.5dvw !important;
+  height: 17.5dvw !important;
+  border: 5px solid gold;
 }

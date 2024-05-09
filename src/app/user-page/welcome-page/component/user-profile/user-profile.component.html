@@ -1,6 +1,7 @@
-<div class="row justify-content-center align-items-center align-middle mt-1">
-  <div class="col-6 text-center user-img text-center" #imgContainer>
-    <div *ngIf="!userProfileService.usersLoaded" class="row position-absolute loading-spinner justify-content-center align-middle align-items-center">
+<div class="row justify-content-center align-items-center align-middle mt-1 overflow-hidden position-relative">
+  <div class="col-6 text-center user-img text-center overflow-hidden overflow-hidden" #imgContainer>
+    <app-user-info></app-user-info>
+    <div *ngIf="!userProfileService.usersLoaded" class="row position-absolute loading-spinner justify-content-center align-middle align-items-center overflow-hidden">
       <div class="col text-center">
         <mat-spinner class="m-auto"></mat-spinner>
       </div>
@@ -40,7 +41,7 @@
             </div>
           </div>
           <div class="col-1 mb-3">
-            <mat-icon role="button" class="about-user">info</mat-icon>
+            <mat-icon role="button" class="about-user" (click)="userInfoService.toggleAction()">info</mat-icon>
           </div>
         </div>
       </div>

@@ -1,1 +1,7 @@
-<div id="main" #container></div>
+<div class="row py-2">
+  <div class="row" id="main" #container (click)="selectPhoto()">
+    <div class="col-12 text-end ms-3">
+      <mat-icon class="ms-5 mt-2 text-danger" role="button" (click)="deletePhoto()"> delete</mat-icon>
+    </div>
+  </div>
+</div>

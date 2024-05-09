@@ -26,3 +26,23 @@
      transform: translate(0);
     }
 }
+
+@media screen and (max-width: 768px) {
+  .menu-form{
+    height: 45dvh;
+    width: 100dvw !important;
+    margin-top: 47dvh;
+  }
+}
+@media screen and (min-width: 769px) {
+  .menu-form{
+    height: 100dvh;
+    width: 50dvw !important;
+  }
+}
+@media screen and (min-width: 960px) {
+  .menu-form{
+    height: 100dvh;
+    width: 25dvw !important;
+  }
+}

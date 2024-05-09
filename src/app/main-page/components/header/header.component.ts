@@ -34,5 +34,10 @@ export class HeaderComponent implements OnInit{
     })
 
   }
+  closeMenu(){
+    console.log('CLOSE')
+    this.renderer.removeClass(this.navMenu?.nativeElement,'open-menu')
+    this.renderer.addClass(this.navMenu?.nativeElement, 'close-menu')
+  }
 
 }

@@ -9,6 +9,8 @@ import {NgClass, NgIf, NgStyle} from "@angular/common";
 import {MatDialog} from "@angular/material/dialog";
 import {FilterDialogComponent} from "./dialog/filter-dialog/filter-dialog.component";
 import {ReportDialogComponent} from "./dialog/report-dialog/report-dialog.component";
+import {UserInfoComponent} from "./user-info/user-info.component";
+import {UserInfoService} from "../../service/user-info.service";
 
 @Component({
   selector: 'app-user-profile',
@@ -20,7 +22,8 @@ import {ReportDialogComponent} from "./dialog/report-dialog/report-dialog.compon
     MatProgressSpinner,
     NgIf,
     NgClass,
-    NgStyle
+    NgStyle,
+    UserInfoComponent
   ],
   templateUrl: './user-profile.component.html',
   styleUrl: './user-profile.component.css'
@@ -28,8 +31,9 @@ import {ReportDialogComponent} from "./dialog/report-dialog/report-dialog.compon
 export class UserProfileComponent implements AfterViewInit{
   @ViewChild('imgContainer')
   private imgContainerRef? : ElementRef;
+  public showUserInfo = false;
 
-  constructor(public userProfileService : UserProfileService, private renderer : Renderer2, public dialog: MatDialog) {
+  constructor(public userProfileService : UserProfileService, private renderer : Renderer2, public dialog: MatDialog, public userInfoService : UserInfoService) {
     this.userProfileService.selectedUserProfileSubject.subscribe(resp => {
       this.setProfileImage();
     })

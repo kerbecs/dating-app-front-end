@@ -27,7 +27,6 @@ export class NotificationService{
     this.notificationActive = true;
   }
   public readAllNotifications(){
-    console.log('read')
     this.http.put(environment.notificationService+'notification/readNotification/'+this.userData.userId,{})
       .subscribe(resp => {
         this.getActivesNotification();

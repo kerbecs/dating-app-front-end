@@ -1,0 +1,11 @@
+<div class="container justify-content-center">
+  <div class="row ms-3 mt-3 mb-3">
+
+    <app-photo class="col-4 px-5" *ngFor="let image of photoService.userData?.userProfileDto?.images"
+               [img-url]="image" role="button" [isForSelect]="true"></app-photo>
+    <div class="col-12 text-center mt-3">
+      <button class="btn btn-primary mx-2" (click)="photoService.setProfilePhoto()">Set profile photo</button>
+      <button class="btn btn-danger mx-2" (click)="onNoClick()">Cancel</button>
+    </div>
+  </div>
+</div>

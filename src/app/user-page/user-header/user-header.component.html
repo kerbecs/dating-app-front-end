@@ -92,14 +92,14 @@
         </div>
         <div class="text-center">
           <button [matMenuTriggerFor]="menu" mat-fab color="warn" class="menu-button"
-                  aria-label="Example icon button with a home icon" (click)="closeMobileMenu()">
+                  aria-label="Example icon button with a home icon">
             <span class="">Account</span>
             <mat-icon matSuffix>person</mat-icon>
           </button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item routerLink="/user/profile">Profile</button>
-            <button mat-menu-item>Settings</button>
-            <button mat-menu-item>Logout</button>
+            <button mat-menu-item routerLink="/user/profile" (click)="closeMobileMenu()">Profile</button>
+            <button mat-menu-item (click)="closeMobileMenu()">Settings</button>
+            <button mat-menu-item (click)="closeMobileMenu()">Logout</button>
           </mat-menu>
         </div>
       </div>

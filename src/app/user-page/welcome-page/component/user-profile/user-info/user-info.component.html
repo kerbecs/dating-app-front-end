@@ -1,0 +1,39 @@
+<div class="row overflow-y-scroll overflow-x-hidden user-info-container position-absolute closed text-light align-items-start align-content-start" #container>
+    <div class="col-12 text-end mt-2 me-1">
+      <button class="btn btn-danger" (click)="toggleElement()">X </button>
+    </div>
+  <div class="col-12 mt-2">
+    <span class="name">{{userService.selectedUserProfile?.firstName}} {{userService.selectedUserProfile?.lastName}} </span>
+  </div>
+  <div class="col-12 mt-2 mb-2">
+    <app-image-user></app-image-user>
+  </div>
+  <div class="col-12 mt-2" *ngIf="userService.selectedUserProfile?.birthDate">
+    {{userService.selectedUserProfile?.birthDate | age}} years - ( {{userService.selectedUserProfile?.birthDate | date}} )
+  </div>
+  <div class="col-12 mt-2" *ngIf="userService.selectedUserProfile?.city || userService.selectedUserProfile?.countryCode">
+    From {{userService.selectedUserProfile?.city}}, {{userService.selectedUserProfile?.countryCode | country}}
+  </div>
+  <div class="col-12 mt-2" *ngIf="userService.selectedUserProfile?.gender">
+    Gender: {{userService.selectedUserProfile?.gender || '' | enumFormat}}
+  </div>
+  <div class="col-12 mt-2" *ngIf="userService.selectedUserProfile?.race">
+    Race: {{userService.selectedUserProfile?.race || '' | enumFormat}}
+  </div>
+  <div class="col-12 mt-2" *ngIf="userService.selectedUserProfile?.sexualOrientation">
+    Sexual orientation: {{userService.selectedUserProfile?.sexualOrientation || '' | enumFormat}}
+  </div>
+  <div class="col-6 mt-2 text-start" *ngIf="userService.selectedUserProfile?.educationList?.length">
+    Education: <br>
+    <ul>
+      <li *ngFor="let education of userService.selectedUserProfile?.educationList">{{education | enumFormat}}</li>
+    </ul>
+  </div>
+  <div class="col-6 mt-2 text-start" *ngIf="userService.selectedUserProfile?.preferenceList?.length">
+    Preference: <br>
+    <ul>
+      <li *ngFor="let preference of userService.selectedUserProfile?.preferenceList">{{preference | enumFormat}}</li>
+    </ul>
+  </div>
+</div>
+

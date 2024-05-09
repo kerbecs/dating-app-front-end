@@ -94,7 +94,6 @@ export class UserProfileService{
         y = position.coords.longitude;
 
         this.userProfilesList.forEach(profile => {
-          console.log(profile.coords)
           if(profile.coords && profile.coords.x && profile.coords.y){
             profile.distance = this.distanceBetweenPoints(x,y,profile.coords.x, profile.coords.y);
           }
@@ -103,8 +102,6 @@ export class UserProfileService{
 
   }
   private distanceBetweenPoints(lat1 : number, lon1 : number, lat2 : number, lon2 : number) {
-    console.log(lat1+" "+lon1)
-    console.log(lat2+" "+lon2)
     if ((lat1 == lat2) && (lon1 == lon2)) {
       return 0;
     }

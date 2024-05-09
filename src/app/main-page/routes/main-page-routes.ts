@@ -7,6 +7,8 @@ import {ValidateEmailComponent} from "../components/validate-email/validate-emai
 import {LoginComponent} from "../components/login-page/component/login/login.component";
 import {ForgotPasswordComponent} from "../components/login-page/component/forgot-password/forgot-password.component";
 import {NewPasswordComponent} from "../components/login-page/component/new-password/new-password.component";
+import {AboutPageComponent} from "../components/about-page/about-page.component";
+import {RulePageComponent} from "../components/rule-page/rule-page.component";
 
 export const routes : Routes = [
   {path: '', component: MainPageComponent, children: [
@@ -17,6 +19,8 @@ export const routes : Routes = [
           {path: "reset", component: ForgotPasswordComponent},
           {path: "reset/:token", component: NewPasswordComponent}
         ]},
-      {path: 'validate-email/:token', component: ValidateEmailComponent}
+      {path: 'validate-email/:token', component: ValidateEmailComponent},
+      {path: 'about', component: AboutPageComponent},
+      {path: 'rules', component: RulePageComponent}
     ]}
 ]

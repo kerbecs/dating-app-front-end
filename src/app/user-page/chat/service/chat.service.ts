@@ -44,6 +44,7 @@ export class ChatService{
   public addMessage(message : Message){
     if(message.senderId == this.userData?.userId) message.isOwnMessage = true;
     this.newMessageSubject.next(message);
+    this.selectedUserMessages.push(message);
     if(message.senderId == this.userData?.userId) this.selectedUserMessages.push(message);
     this.scrollSubject.next();
 

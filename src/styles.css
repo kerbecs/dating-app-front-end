@@ -42,3 +42,7 @@ html {
   --mat-dialog-container-min-width: 25dvw !important;
 
 }
+
+.h-90{
+  height: 90%;
+}

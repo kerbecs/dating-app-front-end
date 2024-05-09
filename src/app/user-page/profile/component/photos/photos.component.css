@@ -1,0 +1,10 @@
+.main{
+  min-height: 100dvh !important;
+}
+#profileImg{
+  width: 20dvw;
+  height: 20dvw;
+  background-position: center;
+  background-size: cover;
+}
+

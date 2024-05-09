@@ -2,7 +2,6 @@
   height: 28px;
   width: 28px;
 }
-
 .about-user{
   transform: scale(115%);
 }
@@ -68,3 +67,4 @@
 .compatibility{
   font-size: 1.5rem;
 }
+

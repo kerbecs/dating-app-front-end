@@ -1,0 +1,10 @@
+#main{
+  width: 15dvw;
+  height: 15dvw;
+  background-position: center;
+  background-size: cover;
+}
+.next{
+  transform: scale(150%);
+  color: #3B71CA;
+}
