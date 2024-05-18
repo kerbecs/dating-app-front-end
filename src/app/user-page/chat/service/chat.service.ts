@@ -8,6 +8,7 @@ import {userDataSelector} from "../../../state/selector/user-data.selector";
 import {UserDataDto} from "../../../state/helper/user-data-dto";
 import {fr} from "picmo/dist/i18n";
 import {Subject} from "rxjs";
+import {Router} from "@angular/router";
 
 @Injectable({providedIn: 'root'})
 export class ChatService{
@@ -19,7 +20,7 @@ export class ChatService{
   public scrollSubject = new Subject<void>();
   public unreadMessages : number = 0;
 
-  constructor(private http : HttpClient, private store : Store<storeType>) {
+  constructor(private http : HttpClient, private store : Store<storeType>, private router : Router) {
     store.select(userDataSelector)
       .subscribe(userData=> {
         if(!userData) return;
@@ -42,17 +43,20 @@ export class ChatService{
        })
   }
   public addMessage(message : Message){
-    if(message.senderId == this.userData?.userId) message.isOwnMessage = true;
+    if(message.senderId == this.userData?.userId) {
+      message.isOwnMessage = true;
+    }
+    if((message.senderId == this.selectedUserId || message.isOwnMessage) && this.router.url.includes('user/chat')){
+      this.readMessages();
+      this.selectedUserMessages.push(message);
+    }
     this.newMessageSubject.next(message);
-    this.selectedUserMessages.push(message);
-    if(message.senderId == this.userData?.userId) this.selectedUserMessages.push(message);
     this.scrollSubject.next();
-
   }
   public getLastMessage( senderId : number){
     return this.http.get(environment.chatService+'message/last-message/'+this.userData?.userId+'/'+senderId);
   }
-  private readMessages(){
+  public readMessages(){
     const unreadMessages = this.selectedUserMessages.filter(message => !message.isOwnMessage && !message.isRead).length;
     this.unreadMessages -= unreadMessages;
 

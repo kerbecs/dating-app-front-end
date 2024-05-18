@@ -50,9 +50,15 @@
           </mat-menu>
         </div>
         <div class="col-xl-3 col-lg-4 col-md-4 text-center">
-          <button mat-fab color="warn" class="menu-button" aria-label="Example icon button with a home icon">
+          <button [matMenuTriggerFor]="lang" mat-fab color="warn" class="menu-button" aria-label="Example icon button with a home icon">
             <mat-icon>language</mat-icon>
           </button>
+          <mat-menu #lang="matMenu">
+            <button mat-menu-item *ngFor="let language of languageService.languageList"
+                    (click)="languageService.changeUserLanguage(language)"
+                    [ngClass]="{'selected-language': languageService.selectedLanguage == language}"
+            >{{language}}</button>
+          </mat-menu>
         </div>
         <div class="col-xl-3 col-lg-4 col-md-4 text-center">
           <button [matMenuTriggerFor]="account" mat-fab color="warn" class="menu-button"
@@ -85,7 +91,7 @@
     <div class="col-sm-11 col-12 text-center mb-5">
       <div class="row align-items-center justify-content-center">
         <div class="text-center">
-          <button mat-button class="h-100 central-button d-md-inline" aria-label="Example icon button with a home icon" (click)="closeMobileMenu()">
+          <button [matMenuTriggerFor]="lang" mat-button class="h-100 central-button d-md-inline" aria-label="Example icon button with a home icon" (click)="closeMobileMenu()">
             <mat-icon matSuffix>language</mat-icon>
             <span class="">Language</span>
           </button>

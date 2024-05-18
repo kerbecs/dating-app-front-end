@@ -26,6 +26,7 @@ export class MessageWebSocketService {
       })
   }
   receiveMessage(){
+    console.log('received')
     if(!this.WSConnection || !this.userData) return;
     this.WSConnection.subscribe('/user/'+this.userData.userId+'/queue/message',(resp) => {
       const message = <Message>JSON.parse(resp.body);
@@ -51,7 +52,8 @@ export class MessageWebSocketService {
     this.WSConnection.connect({},() => {})
   }
   private incrementNumberOfUnreadMessages(message : Message){
-    if(this.router.url != '/user/chat' || message.senderId != this.chatService.selectedUserId){
+    if(this.chatService.unreadMessages < 0 ) this.chatService.unreadMessages = 0;
+    if(this.router.url != '/user/chat'){
       this.chatService.unreadMessages++;
     }
   }

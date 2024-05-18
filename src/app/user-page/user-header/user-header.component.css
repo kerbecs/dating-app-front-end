@@ -123,3 +123,6 @@ button {
   --mat-badge-small-size-container-padding: 0;
   --mat-badge-large-size-container-padding: 0;
 }
+.selected-language{
+  background-color: #3B71CA !important;
+}

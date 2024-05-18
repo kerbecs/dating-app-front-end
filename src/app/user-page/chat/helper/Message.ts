@@ -1,3 +1,4 @@
+import {MessageType} from "./MessageType";
 
 export class Message{
   public messageId! : string;
@@ -7,5 +8,6 @@ export class Message{
   public content! : string;
   public time! : number;
   public isRead! : boolean;
+  public messageType!  : MessageType;
   public isOwnMessage = false;
 }

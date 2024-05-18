@@ -21,6 +21,7 @@ import {reportReasonAction} from "../action/report-reason.action";
 import {Coords} from "../../user-page/welcome-page/helper/coords";
 import {userLocationAction} from "../action/user-location.action";
 import {loginTokenSelector} from "../selector/login-token.selector";
+import {languageAction} from "../action/language.action";
 
 @Injectable({providedIn: 'root'})
 export class UserDataEffect {
@@ -63,6 +64,10 @@ export class UserDataEffect {
         this.http.get(environment.toolService+'report/reason')
           .subscribe(resp => {
             this.store.dispatch(reportReasonAction({reportReasonList: <string[]>resp}))
+          })
+        this.http.get(environment.toolService+'translate/language')
+          .subscribe(languageList => {
+            this.store.dispatch(languageAction({languageList: <string[]>languageList}))
           })
 
       }

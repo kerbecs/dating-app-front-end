@@ -1,4 +1,5 @@
 <form class="row w-100 align-middle align-content-center justify-content-center ms-2" [formGroup]="form">
+  <app-image-to-send></app-image-to-send>
   <div class="col-md-11 col-10">
     <div class="bg-white w-100 text-div rounded-pill">
       <div class="row h-100 justify-content-center align-middle align-items-center">
@@ -10,7 +11,10 @@
         </div>
         <div class="col-lg-1 col-2 text-center">
           <img role="button" class="record-img" src="https://cdn.icon-icons.com/icons2/902/PNG/512/microphone_icon-icons.com_69348.png"/>
+          <label for="send-file">
           <img role="button" class="upload-img ms-md-2 ms-0" src="https://icons.veryicon.com/png/o/business/office-icon-series/load-file.png">
+          </label>
+          <input type="file" id="send-file" class="d-none" accept="image/*"(change)="onLoadFile($event)">
         </div>
       </div>
     </div>

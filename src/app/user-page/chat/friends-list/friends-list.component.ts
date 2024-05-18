@@ -8,6 +8,7 @@ import {storeType} from "../../../state/store";
 import {userDataSelector} from "../../../state/selector/user-data.selector";
 import {UserProfileDto} from "../../welcome-page/helper/user-profile-dto";
 import {connexionsProfilesSelector} from "../../../state/selector/connexions-profiles.selector";
+import {FriendsService} from "../service/friends.service";
 
 @Component({
   selector: 'app-friends-list',
@@ -21,14 +22,8 @@ import {connexionsProfilesSelector} from "../../../state/selector/connexions-pro
   styleUrl: './friends-list.component.css'
 })
 export class FriendsListComponent {
-  public userConnexions : UserProfileDto[] = [];
   constructor(
-    private elementsControlService : ElementsControlService,
-    private store : Store<storeType>) {
-    this.store.select(connexionsProfilesSelector)
-      .subscribe(connexions => {
-        this.userConnexions = connexions;
-      })
+    private elementsControlService : ElementsControlService, public friendService : FriendsService) {
   }
   public displayInbox(){
     this.elementsControlService.displayInbox = true;

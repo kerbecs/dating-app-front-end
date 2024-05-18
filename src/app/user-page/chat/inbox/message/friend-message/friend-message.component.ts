@@ -6,6 +6,9 @@ import {storeType} from "../../../../../state/store";
 import {connexionsProfilesSelector} from "../../../../../state/selector/connexions-profiles.selector";
 import {MatButton} from "@angular/material/button";
 import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
+import {LanguageService} from "../../../../../service/language.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {TranslateMessageDto} from "../../../helper/translate-message-dto";
 
 @Component({
   selector: 'app-friend-message',
@@ -25,7 +28,7 @@ export class FriendMessageComponent implements AfterViewInit{
   public message! : Message;
   @ViewChild('imgProfile')
   public imgProfile! : ElementRef;
-  constructor(private store : Store<storeType>, private renderer : Renderer2) {
+  constructor(private store : Store<storeType>, private renderer : Renderer2, private languageService : LanguageService, private _snackBar: MatSnackBar) {
   }
 
   ngAfterViewInit(): void {
@@ -36,6 +39,23 @@ export class FriendMessageComponent implements AfterViewInit{
           `url('${user?.imgUrl || 'https://freesvg.org/img/abstract-user-flat-4.png'}')`);
       })
   }
-
+  translateMessage(){
+    if(!this.message?.content) return;
+    this.languageService.translateMessage(this.message.content)
+      ?.subscribe({
+        next: message => {
+          if(message){
+            this.message.content = (<TranslateMessageDto>message).message;
+          }
+        },
+        error: err => {
+          console.log(err)
+          this.openSnackBar("An error has occurred",'Close')
+        }
+      })
+  }
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {duration: 3000});
+  }
 
 }

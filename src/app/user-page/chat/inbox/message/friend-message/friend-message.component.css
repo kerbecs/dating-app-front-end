@@ -61,3 +61,6 @@
     width: 1% !important;
   }
 }
+.cdk-overlay-pane {
+  overflow-y: hidden !important;
+}

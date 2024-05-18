@@ -15,6 +15,7 @@ import {educationReducer} from "./reducer/education.reducer";
 import {genderReducer} from "./reducer/gender.reducer";
 import {reportReasonSelector} from "./selector/report-reason.selector";
 import {reportReasonReducer} from "./reducer/report-reason.reducer";
+import {languageReducer} from "./reducer/language.reducer";
 
 
 export const store  = {
@@ -29,7 +30,8 @@ export const store  = {
     raceList: raceReducer,
     educationList: educationReducer,
     genderList : genderReducer,
-    reportReasonList: reportReasonReducer
+    reportReasonList: reportReasonReducer,
+    languageList: languageReducer
 }
 export type storeType = {
   countryList : {name : string, code : string}[],
@@ -43,6 +45,6 @@ export type storeType = {
   raceList: string[],
   educationList: string[],
   genderList: string[],
-  reportReasonList: string[]
-
+  reportReasonList: string[],
+  languageList: string[]
 }

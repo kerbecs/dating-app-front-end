@@ -47,5 +47,5 @@ html {
   height: 90%;
 }
 .cdk-overlay-pane {
-  overflow-y: scroll !important;
+  overflow-y: auto;
 }

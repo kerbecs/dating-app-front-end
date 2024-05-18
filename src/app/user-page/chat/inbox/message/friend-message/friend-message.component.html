@@ -12,7 +12,7 @@
   <div class="col-xl-3 col-lg-2 col-md-2 col-sm-2 col-2">
     <button mat-button [matMenuTriggerFor]="menu" class="message-menu">▼</button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item class="dropdown-item">Translate</button>
+      <button mat-menu-item class="dropdown-item" (click)="translateMessage()">Translate</button>
       <button mat-menu-item class="dropdown-item">Report</button>
       <button mat-menu-item class="dropdown-item">Copy</button>
     </mat-menu>

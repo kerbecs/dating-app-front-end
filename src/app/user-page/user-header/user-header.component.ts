@@ -6,10 +6,14 @@ import {MatSuffix} from "@angular/material/form-field";
 import {RouterLink} from "@angular/router";
 import {UserHeaderService} from "./service/user-header-service";
 import {MatBadge} from "@angular/material/badge";
-import {NgForOf, NgIf, NgSwitch, NgSwitchCase} from "@angular/common";
+import {NgClass, NgForOf, NgIf, NgSwitch, NgSwitchCase} from "@angular/common";
 import {NotificationService} from "./service/notification-service";
 import {UserMatchAction} from "../welcome-page/helper/user-match-action";
 import {ChatService} from "../chat/service/chat.service";
+import {MatOption} from "@angular/material/autocomplete";
+import {MatSelect} from "@angular/material/select";
+import {ReactiveFormsModule} from "@angular/forms";
+import {LanguageService} from "../../service/language.service";
 
 @Component({
   selector: 'app-user-header',
@@ -27,7 +31,11 @@ import {ChatService} from "../chat/service/chat.service";
     NgForOf,
     NgIf,
     NgSwitch,
-    NgSwitchCase
+    NgSwitchCase,
+    MatOption,
+    MatSelect,
+    ReactiveFormsModule,
+    NgClass
   ],
   templateUrl: './user-header.component.html',
   styleUrl: './user-header.component.css'
@@ -38,7 +46,7 @@ export class UserHeaderComponent implements OnInit {
   @ViewChild('menuButton', {static: true})
   menuButton: ElementRef | undefined;
 
-  constructor(private renderer: Renderer2, public userHeaderService : UserHeaderService, public notificationService : NotificationService, public chatService : ChatService) {
+  constructor(private renderer: Renderer2,public languageService : LanguageService, public userHeaderService : UserHeaderService, public notificationService : NotificationService, public chatService : ChatService) {
   }
 
   ngOnInit(): void {
@@ -59,5 +67,4 @@ export class UserHeaderComponent implements OnInit {
     this.renderer.addClass(this.mobileHeader?.nativeElement, 'mobile-menu-close')
   }
 
-  protected readonly UserMatchAction = UserMatchAction;
 }

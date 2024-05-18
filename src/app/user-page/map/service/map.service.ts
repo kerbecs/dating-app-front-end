@@ -16,12 +16,14 @@ import {Subject} from "rxjs";
 import {UserDataDto} from "../../../state/helper/user-data-dto";
 import {userDataSelector} from "../../../state/selector/user-data.selector";
 import {MapMarker} from "../helper/map-marker";
+import {loginTokenSelector} from "../../../state/selector/login-token.selector";
 
 @Injectable({providedIn: "root"})
 export class MapService {
   private _map!: L.Map
   private _userLocation: { x: number, y: number } = {x: 51.505, y: -0.09};
   private mapMarkers : MapMarker[] = [];
+  private loginToken! : string;
   public mapInitializedSubject = new Subject<void>();
   public userDataDto!: UserDataDto | null;
   public mapEvents: MapEvent[] = [];
@@ -33,6 +35,9 @@ export class MapService {
     })
     store.select(userDataSelector).subscribe(userData => {
       this.userDataDto = userData;
+    });
+    store.select(loginTokenSelector).subscribe(loginToken => {
+      if(loginToken) this.loginToken = loginToken
     });
   }
 
@@ -141,7 +146,11 @@ export class MapService {
   }
 
   getMapEvents() {
-    return this.http.get(environment.mapService + "map/events");
+    return this.http.get(environment.mapService + "map/events", {
+      headers: {
+        loginToken: this.loginToken
+      }
+    });
   }
 
   get map(): L.Map {

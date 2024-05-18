@@ -1,4 +1,5 @@
 import {Coords} from "./coords";
+import {UserSettings} from "./user-settings";
 
 export class UserProfileDto{
   public id! : string;
@@ -18,6 +19,7 @@ export class UserProfileDto{
   public online! : boolean;
   public coords! : Coords;
   public images! : string[];
+  public userSettings! : UserSettings;
 
   private _compatibility! : number;
   private _distance! : number;
