@@ -41,7 +41,7 @@ export class FriendComponent implements AfterViewInit{
     this.chatService.scrollSubject.next();
     this.renderer.removeClass(this.container.nativeElement,'new-message')
     this.elementControlService.hideFriendsListMobile();
-
+    this.chatService.readMessages();
   }
 
   ngAfterViewInit(): void {

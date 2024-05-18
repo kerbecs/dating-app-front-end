@@ -6,6 +6,10 @@
   background-size: cover;
   border-radius: 50%;
 }
+.status-container{
+  width: 6dvh;
+  height: 6dvh;
+}
 .friend{
   height: 10dvh;
   color: whitesmoke;
@@ -21,4 +25,21 @@
 }
 .selected, .selected:hover{
   background-color: rgba(25, 68, 122, 0.99);
+}
+.online-circle{
+  width: 0.6dvw !important;
+  height: 0.6dvw !important;
+  background-color: greenyellow;
+  border-radius: 50%;
+  display: inline-block;
+  margin-top: 35px;
+}
+.offline-circle{
+  width: 0.6dvw !important;
+  height: 0.6dvw !important;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+  margin-top: 35px;
+
 }
