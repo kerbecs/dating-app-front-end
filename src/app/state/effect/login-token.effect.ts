@@ -33,7 +33,6 @@ export class LoginTokenEffect {
                 return;
               }
               const userDataDto = <UserDataDto>resp;
-              console.log('user data', userDataDto)
               this.store.dispatch(userDataAction(userDataDto))
               this.store.dispatch(userLocationAction())
             },

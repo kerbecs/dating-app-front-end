@@ -8,7 +8,7 @@ import {userDataSelector} from "../../../state/selector/user-data.selector";
 import {UserDataDto} from "../../../state/helper/user-data-dto";
 import {fr} from "picmo/dist/i18n";
 import {Subject} from "rxjs";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router, RouterLinkActive} from "@angular/router";
 
 @Injectable({providedIn: 'root'})
 export class ChatService{
@@ -27,6 +27,7 @@ export class ChatService{
         this.userData = userData;
         this.getUnreadMessages();
       })
+
   }
 
   public getAllUsersMessages(friendId : number){
@@ -63,6 +64,7 @@ export class ChatService{
     this.http.put(environment.chatService+'message/read-messages/'+this.selectedUserId+'/'+this.userData?.userId,{})
       .subscribe();
   }
+
   private getUnreadMessages(){
     this.http.get(environment.chatService+'message/unread-message/'+this.userData?.userId)
       .subscribe(resp => {

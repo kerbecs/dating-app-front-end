@@ -18,18 +18,19 @@ import {userDataSelector} from "../../../state/selector/user-data.selector";
 import {MapMarker} from "../helper/map-marker";
 import {loginTokenSelector} from "../../../state/selector/login-token.selector";
 
+
 @Injectable({providedIn: "root"})
 export class MapService {
   private _map!: L.Map
   private _userLocation: { x: number, y: number } = {x: 51.505, y: -0.09};
-  private mapMarkers : MapMarker[] = [];
-  private loginToken! : string;
+  private mapMarkers: MapMarker[] = [];
+  private loginToken!: string;
   public mapInitializedSubject = new Subject<void>();
   public userDataDto!: UserDataDto | null;
   public mapEvents: MapEvent[] = [];
   public mapEventsLoadedSubject = new Subject<void>();
 
-  constructor(private http: HttpClient, private router: Router, private activatedRoute : ActivatedRoute, private store: Store<storeType>) {
+  constructor(private http: HttpClient, private router: Router, private activatedRoute: ActivatedRoute, private store: Store<storeType>) {
     store.select(userLocationSelector).subscribe(userLocation => {
       this._userLocation = userLocation
     })
@@ -37,14 +38,14 @@ export class MapService {
       this.userDataDto = userData;
     });
     store.select(loginTokenSelector).subscribe(loginToken => {
-      if(loginToken) this.loginToken = loginToken
+      if (loginToken) this.loginToken = loginToken
     });
   }
 
   public initMap() {
     this.map = L.map('map')
 
-    this.changeMapView();
+    this.changeMapView(this._userLocation.x, this._userLocation.y);
     L.tileLayer('https://tile.openstreetmap.de/{z}/{x}/{y}.png', mapOptions).addTo(this.map);
 
     this.setUserCurrentPosition();
@@ -60,7 +61,7 @@ export class MapService {
         this._userLocation = {x: latitude, y: longitude}
 
         this.store.dispatch(getUserLocation(this._userLocation))
-        this.changeMapView();
+        this.changeMapView(this._userLocation.x, this._userLocation.y);
         this.addHomeMarker();
       },
       () => alert("Can not get your location!"))
@@ -83,6 +84,7 @@ export class MapService {
         )
         this.mapEvents = <MapEvent[]>resp;
         this.mapEventsLoadedSubject.next();
+        this.checkQueryParams();
       }
     })
   }
@@ -106,8 +108,14 @@ export class MapService {
 
     marker.on('click', () => {
       marker.openPopup();
+      this.router.navigate([], {
+        relativeTo: this.activatedRoute,
+        queryParams: {
+          eventId: mapEvent.id
+        }
+      })
     });
-    this.mapMarkers.push(new MapMarker(mapEvent.id,marker));
+    this.mapMarkers.push(new MapMarker(mapEvent.id, marker));
 
   }
 
@@ -130,17 +138,13 @@ export class MapService {
     `
   }
 
-  public changeMapView() {
-    this.map.setView([this._userLocation.x, this._userLocation.y], 16);
+  public changeMapView(x: number, y: number, z: number = 16) {
+    this.map.setView([x, y], z);
   }
-  public goToSelectedEvent(){
-    this.activatedRoute.queryParams.subscribe(params => {
 
-    })
-  }
-  public openPopup(markerId : number){
+  public openPopup(markerId: number) {
     const marker = this.mapMarkers.find(it => it.id == markerId)?.marker;
-    if(!marker) return;
+    if (!marker) return;
     marker?.openPopup()
     this._map.panTo(marker?.getLatLng());
   }
@@ -151,6 +155,18 @@ export class MapService {
         loginToken: this.loginToken
       }
     });
+  }
+
+  private checkQueryParams(): void {
+    const eventId = this.activatedRoute.snapshot.queryParams['eventId'];
+    if (!eventId) return;
+
+    const mapMarket = this.mapMarkers.find(mapMarker => mapMarker.id == eventId)
+    const event = this.mapEvents.find(event => event.id == eventId);
+    if (!mapMarket || !event) return;
+    this.changeMapView(event.x, event.y);
+    this.openPopup(mapMarket.id);
+
   }
 
   get map(): L.Map {
@@ -168,4 +184,6 @@ export class MapService {
   set userLocation(value: { x: number; y: number }) {
     this._userLocation = value;
   }
+
+
 }

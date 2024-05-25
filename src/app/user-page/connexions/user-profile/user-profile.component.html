@@ -14,7 +14,7 @@
             </div>
             <div class="col-12">
               <span><mat-icon role="button"> near_me</mat-icon></span>
-              <span><mat-icon class="ms-3" role="button">  chat</mat-icon></span>
+              <span><mat-icon class="ms-3" role="button" [routerLink]="['/user','chat']" [queryParams]="{userId: userProfile.userId}">  chat</mat-icon></span>
               <span><mat-icon class="ms-3" role="button" (click)="removeConnexion()"> delete</mat-icon></span>
             </div>
           </div>

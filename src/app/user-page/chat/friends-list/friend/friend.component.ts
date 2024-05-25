@@ -6,6 +6,7 @@ import {Message} from "../../helper/Message";
 import {DatePipe} from "../../pipe/date.pipe";
 import {LastMessagePipe} from "../../pipe/last-message.pipe";
 import {ElementsControlService} from "../../service/elements-control.service";
+import {ActivatedRoute, Params, RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-friend',
@@ -13,7 +14,8 @@ import {ElementsControlService} from "../../service/elements-control.service";
   imports: [
     NgClass,
     DatePipe,
-    LastMessagePipe
+    LastMessagePipe,
+    RouterLink
   ],
   templateUrl: './friend.component.html',
   styleUrl: './friend.component.css'
@@ -26,13 +28,12 @@ export class FriendComponent implements AfterViewInit{
   private container! : ElementRef;
   @ViewChild('imgContainer')
   private imgContainer! : ElementRef;
-  constructor(public chatService : ChatService, private renderer : Renderer2, private elementControlService : ElementsControlService) {
+  constructor(public chatService : ChatService, private renderer : Renderer2, private elementControlService : ElementsControlService, private activatedRoute  :ActivatedRoute) {
     chatService.newMessageSubject.subscribe(message => {
       if(message.senderId == this.userProfile.userId){
         renderer.addClass(this.container.nativeElement,'new-message')
         this.lastMessage = message;
       }
-
     })
   }
   onFriendClick(){
@@ -50,6 +51,10 @@ export class FriendComponent implements AfterViewInit{
         this.lastMessage = <Message>message;
       })
     this.setUserImageProfile();
+
+    this.activatedRoute.queryParams.subscribe(params => {
+      if(this.userProfile?.userId == params?.['userId']) this.onFriendClick();
+    })
   }
   setUserImageProfile(){
     this.renderer.setStyle(this.imgContainer.nativeElement,'background-image',`url('${this.userProfile.imgUrl}')`)

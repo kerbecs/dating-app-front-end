@@ -36,7 +36,7 @@ export class MenuEventComponent implements AfterViewInit {
   private goToEvent() {
     if (!this.mapEvent) return;
     this.mapService.userLocation = {x: this.mapEvent?.x, y: this.mapEvent.y};
-    this.mapService.changeMapView()
+    this.mapService.changeMapView(this.mapService.userLocation.x, this.mapService.userLocation.y)
     this.mapService.openPopup(this.mapEvent.id);
   }
 

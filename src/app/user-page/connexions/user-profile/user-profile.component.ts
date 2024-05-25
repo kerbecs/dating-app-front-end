@@ -7,6 +7,7 @@ import {storeType} from "../../../state/store";
 import {removeConnexionsAction} from "../../../state/action/connexions-profiles.action";
 import {UserDataDto} from "../../../state/helper/user-data-dto";
 import {userDataSelector} from "../../../state/selector/user-data.selector";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-user-profile',
@@ -14,7 +15,8 @@ import {userDataSelector} from "../../../state/selector/user-data.selector";
   imports: [
     MatIcon,
     NgStyle,
-    NgClass
+    NgClass,
+    RouterLink
   ],
   templateUrl: './user-profile.component.html',
   styleUrl: './user-profile.component.css'
