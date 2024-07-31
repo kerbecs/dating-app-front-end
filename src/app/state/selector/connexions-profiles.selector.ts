@@ -1,3 +1,3 @@
-import {store, storeType} from "../store";
+import {storeType} from "../store";
 
-export const connexionsProfilesSelector = (store : storeType) => store.connexionsProfiles;
+export const connexionsProfilesSelector = (store: storeType) => store.connexionsProfiles;

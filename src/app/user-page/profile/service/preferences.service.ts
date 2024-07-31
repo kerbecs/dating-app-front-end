@@ -3,7 +3,7 @@ import {UserDataDto} from "../../../state/helper/user-data-dto";
 import {Store} from "@ngrx/store";
 import {storeType} from "../../../state/store";
 import {userDataSelector} from "../../../state/selector/user-data.selector";
-import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {preferenceSelector} from "../../../state/selector/preference.selector";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {MatSnackBar} from "@angular/material/snack-bar";

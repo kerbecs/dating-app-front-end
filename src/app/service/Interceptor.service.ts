@@ -12,7 +12,7 @@ export class InterceptorService implements HttpInterceptor{
     this.store.select(loginTokenSelector).subscribe(token => this.loginToken = token);
   }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    return next.handle(req.clone({headers: req.headers.set('loginToken', this.loginToken || '')}))
+    return next.handle(req.clone({headers: req.headers.set('loginToken', this.loginToken ?? '')}))
   }
 
 }

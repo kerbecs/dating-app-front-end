@@ -1,10 +1,9 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
-import {createPicker} from "picmo";
 import {PickerComponent} from "@ctrl/ngx-emoji-mart";
 import {NgIf} from "@angular/common";
-import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {MessageWebSocketService} from "../../../../websocket/message-web-socket.service";
 import {ImageToSendComponent} from "./image-to-send/image-to-send.component";
 

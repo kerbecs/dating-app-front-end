@@ -58,10 +58,10 @@ export class FilterUserProfileService{
 
   }
   private filterByPreference(){
-    if(this.filterForm.controls['preferenceList']?.value != null && this.filterForm.controls['preferenceList']?.value.length){
+    if(this.filterForm.controls['preferenceList']?.value?.length){
       this.userProfileService.filteredUserProfileList = this.userProfileService.filteredUserProfileList
         .filter(it => {
-          return it.preferenceList && it.preferenceList.length && it.preferenceList.find(preference => this.filterForm.controls['preferenceList'].value.includes(preference));
+          return it.preferenceList?.find(preference => this.filterForm.controls['preferenceList'].value.includes(preference));
         })
     }
 
@@ -76,15 +76,15 @@ export class FilterUserProfileService{
     }
   }
   private filterByEducation(){
-    if(this.filterForm.controls['educationList']?.value != null && this.filterForm.controls['educationList']?.value.length){
+    if(this.filterForm.controls['educationList']?.value){
       this.userProfileService.filteredUserProfileList = this.userProfileService.filteredUserProfileList
         .filter(it => {
-          return it.educationList && it.educationList.length && it.educationList.find(preference => this.filterForm.controls['educationList'].value.includes(preference));
+          return it.educationList?.find(preference => this.filterForm.controls['educationList'].value.includes(preference));
         })
     }
   }
   private filterBySexualOrientation(){
-    if(this.filterForm.controls['sexualOrientation']?.value != null && this.filterForm.controls['sexualOrientation']?.value.length){
+    if(this.filterForm.controls['sexualOrientation']?.value){
       this.userProfileService.filteredUserProfileList = this.userProfileService.filteredUserProfileList
         .filter(it => {
           return it.sexualOrientation && this.filterForm.controls['sexualOrientation']?.value.includes(it.sexualOrientation);
@@ -92,7 +92,7 @@ export class FilterUserProfileService{
     }
   }
   private filterByRace(){
-    if(this.filterForm.controls['raceList']?.value != null && this.filterForm.controls['raceList']?.value.length){
+    if(this.filterForm.controls['raceList']?.value){
       this.userProfileService.filteredUserProfileList = this.userProfileService.filteredUserProfileList
         .filter(it => {
           return it.race && this.filterForm.controls['raceList']?.value.includes(it.race);

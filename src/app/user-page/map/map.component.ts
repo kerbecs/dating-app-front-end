@@ -1,18 +1,11 @@
-import {AfterViewInit, Component, OnInit, Renderer2} from '@angular/core';
-import * as L from 'leaflet';
-import {Store} from "@ngrx/store";
-import {userLocationSelector} from "../../state/selector/user-location.selector";
-import {storeType} from "../../state/store";
-import {getUserLocation} from "../../state/action/user-location.actions";
+import {AfterViewInit, Component} from '@angular/core';
 import {MapService} from "./service/map.service";
-import {MapEvent} from "./helper/map-event";
 import {MatFabButton} from "@angular/material/button";
 import {MatIcon} from "@angular/material/icon";
 import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
 import {MenuComponent} from "./menu/menu.component";
 import {MenuFormComponent} from "./menu-form/menu-form.component";
 import {NgIf} from "@angular/common";
-import {Marker} from "leaflet";
 import {RouterOutlet} from "@angular/router";
 
 

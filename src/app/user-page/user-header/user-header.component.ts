@@ -8,7 +8,6 @@ import {UserHeaderService} from "./service/user-header-service";
 import {MatBadge} from "@angular/material/badge";
 import {NgClass, NgForOf, NgIf, NgSwitch, NgSwitchCase} from "@angular/common";
 import {NotificationService} from "./service/notification-service";
-import {UserMatchAction} from "../welcome-page/helper/user-match-action";
 import {ChatService} from "../chat/service/chat.service";
 import {MatOption} from "@angular/material/autocomplete";
 import {MatSelect} from "@angular/material/select";

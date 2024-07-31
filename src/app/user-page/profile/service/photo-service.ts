@@ -4,8 +4,6 @@ import {UserDataDto} from "../../../state/helper/user-data-dto";
 import {Store} from "@ngrx/store";
 import {storeType} from "../../../state/store";
 import {userDataSelector} from "../../../state/selector/user-data.selector";
-import {Evented} from "leaflet";
-import {fi} from "picmo/dist/i18n";
 import {HttpClient} from "@angular/common/http";
 import {loginTokenSelector} from "../../../state/selector/login-token.selector";
 import {environment} from "../../../../environments/environment";
@@ -43,7 +41,7 @@ export class PhotoService {
 
   // @ts-ignore
   addPhoto(event) {
-    if (event.target.files && event.target.files[0]) {
+    if (event?.target?.files?.[0]) {
       this.chosenPhoto = event.target.files[0];
     }
   }

@@ -1,11 +1,9 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {MatFormField, MatHint, MatLabel} from "@angular/material/form-field";
 import {MatIcon} from "@angular/material/icon";
 import {MatInput} from "@angular/material/input";
 import {MatOption, MatSelect} from "@angular/material/select";
 import {MatButton} from "@angular/material/button";
-import {MapService} from "../../service/map.service";
-import {HttpClient} from "@angular/common/http";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {visibilityList} from "./helper/visibility-list";
 import {eventTypeList} from "./helper/event-type-list";
@@ -14,8 +12,6 @@ import {Store} from "@ngrx/store";
 import {storeType} from "../../../../state/store";
 import {loginTokenSelector} from "../../../../state/selector/login-token.selector";
 import {MapEventService} from "../../service/map-event.service";
-import {SendMapEvent} from "../../helper/send-map-event";
-import {MapEvent} from "../../helper/map-event";
 import {MapEventFormData} from "../../helper/map-event-form-data";
 
 @Component({
@@ -39,15 +35,16 @@ import {MapEventFormData} from "../../helper/map-event-form-data";
 })
 export class AddEventFormComponent {
   public userAddedMarker = false;
-  public formGroup : FormGroup = new FormGroup({
-    eventType: new FormControl({value: null, disabled: true},[Validators.required]),
-    visibility: new FormControl({value: null, disabled: true},[Validators.required]),
-    description: new FormControl({value: null, disabled: true},[Validators.required])
+  public formGroup: FormGroup = new FormGroup({
+    eventType: new FormControl({value: null, disabled: true}, [Validators.required]),
+    visibility: new FormControl({value: null, disabled: true}, [Validators.required]),
+    description: new FormControl({value: null, disabled: true}, [Validators.required])
   })
-  private loginToken : string | null = '';
+  private loginToken: string | null = '';
   protected readonly eventTypeList = eventTypeList;
   protected readonly visibilityList = visibilityList;
-  constructor(public mapEventService : MapEventService, private store : Store<storeType>) {
+
+  constructor(public mapEventService: MapEventService, private store: Store<storeType>) {
     this.disableFieldsForm();
 
     mapEventService.eventAddedSubject.subscribe(value => {
@@ -57,39 +54,46 @@ export class AddEventFormComponent {
     })
 
     mapEventService.userAddedMarkerSubject.subscribe(next => {
-      this.userAddedMarker = true;
-      if(next) this.enableFieldsForm()
-      else this.disableFieldsForm()
-    }
+        this.userAddedMarker = true;
+        if (next) this.enableFieldsForm()
+        else this.disableFieldsForm()
+      }
     );
     store.select(loginTokenSelector).subscribe(value => this.loginToken = value)
 
   }
-  enableFieldsForm(){
+
+  enableFieldsForm() {
     this.formGroup.get('eventType')?.enable();
     this.formGroup.get('visibility')?.enable();
     this.formGroup.get('description')?.enable();
   }
-  disableFieldsForm(){
+
+  disableFieldsForm() {
     this.formGroup.get('eventType')?.disable();
     this.formGroup.get('visibility')?.disable();
     this.formGroup.get('description')?.disable();
   }
-  getDescription(){
+
+  getDescription() {
     return this.formGroup.get('description')?.value;
   }
-  getEventType(){
+
+  getEventType() {
     return this.formGroup.get('eventType')?.value;
 
   }
-  getVisibility(){
+
+  getVisibility() {
     return this.formGroup.get('visibility')?.value;
 
   }
-  sendForm(){
-    this.mapEventService.saveAddedEvent(new MapEventFormData(this.getDescription(),this.getVisibility(),this.getEventType()));
+
+  sendForm() {
+    this.mapEventService.saveAddedEvent(new MapEventFormData(this.getDescription(), this.getVisibility(), this.getEventType()));
   }
-  closeForm(){
+
+  closeForm() {
     this.mapEventService.removeAddedMarker()
     this.mapEventService.setLinkToMainMap();
     this.formGroup.reset();

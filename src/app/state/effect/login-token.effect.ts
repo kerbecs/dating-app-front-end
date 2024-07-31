@@ -1,12 +1,7 @@
-import {effect, Injectable} from "@angular/core";
+import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
 import {HttpClient} from "@angular/common/http";
-import {
-  getTokenFromStorage,
-  invalidateToken,
-  removeTokenFromStorage,
-  saveTokenInStorage
-} from "../action/login-token.actions";
+import {getTokenFromStorage, invalidateToken, removeTokenFromStorage} from "../action/login-token.actions";
 import {of, switchMap, tap, withLatestFrom} from "rxjs";
 import {Store} from "@ngrx/store";
 import {storeType} from "../store";

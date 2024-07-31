@@ -5,7 +5,6 @@ import {Store} from "@ngrx/store";
 import {storeType} from "../store";
 import {tap, withLatestFrom} from "rxjs";
 import {userDataSelector} from "../selector/user-data.selector";
-import {getTokenFromStorage} from "../action/login-token.actions";
 import {environment} from "../../../environments/environment";
 import {UserProfileDto} from "../../user-page/welcome-page/helper/user-profile-dto";
 import {userDataAction} from "../action/user-data.action";

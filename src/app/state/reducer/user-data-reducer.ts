@@ -1,4 +1,4 @@
-import {Action, ActionReducer, createReducer, on} from "@ngrx/store";
+import {createReducer, on} from "@ngrx/store";
 import {UserDataDto} from "../helper/user-data-dto";
 import {userDataAction} from "../action/user-data.action";
 

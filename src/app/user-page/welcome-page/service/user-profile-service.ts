@@ -32,7 +32,7 @@ export class UserProfileService {
   }
 
   public addConnexion() {
-    this.http.post(environment.userService + 'user-connexions', new UserConnexionDto(this.userData?.userId || 0, this.selectedUserProfile?.userId || 0))
+    this.http.post(environment.userService + 'user-connexions', new UserConnexionDto(this.userData?.userId ?? 0, this.selectedUserProfile?.userId ?? 0))
       .subscribe({
         next: it => {
           this.showSnackBar('User added successfully');
@@ -109,7 +109,7 @@ export class UserProfileService {
       y = position.coords.longitude;
 
       this.userProfilesList.forEach(profile => {
-        if (profile.coords && profile.coords.x && profile.coords.y) {
+        if (profile?.coords?.x && profile?.coords?.y) {
           profile.distance = this.distanceBetweenPoints(x, y, profile.coords.x, profile.coords.y);
         }
       })

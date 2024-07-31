@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatCheckbox} from "@angular/material/checkbox";
 import {MatFormField, MatLabel, MatSuffix} from "@angular/material/form-field";
@@ -28,10 +28,12 @@ import {NgIf} from "@angular/common";
 })
 export class ForgotPasswordComponent {
   public tokenCreated = false;
-  constructor(public loginService : LoginService) {
+
+  constructor(public loginService: LoginService) {
 
   }
-  public createResetPasswordToken(){
+
+  public createResetPasswordToken() {
     this.loginService.createResetPasswordToken()
       .subscribe(resp => this.tokenCreated = true);
   }

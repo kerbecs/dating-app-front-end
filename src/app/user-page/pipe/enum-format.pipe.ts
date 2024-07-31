@@ -10,7 +10,7 @@ export class EnumFormatPipe implements PipeTransform{
     return value
       .toLowerCase()
       .split('_')
-      .map(it => it.replace(it.at(0) || '', it.at(0)?.toUpperCase() || ''))
+      .map(it => it.replace(it.at(0) ?? '', it.at(0)?.toUpperCase() ?? ''))
       .toString()
       .replaceAll(',', ' ')
   }

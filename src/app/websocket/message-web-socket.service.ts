@@ -8,8 +8,7 @@ import {userDataSelector} from "../state/selector/user-data.selector";
 import {UserDataDto} from "../state/helper/user-data-dto";
 import {ChatService} from "../user-page/chat/service/chat.service";
 import {NotificationService} from "../user-page/user-header/service/notification-service";
-import {HttpClient} from "@angular/common/http";
-import {Router, RouterLink} from "@angular/router";
+import {Router} from "@angular/router";
 
 @Injectable({providedIn: 'root'})
 export class MessageWebSocketService {

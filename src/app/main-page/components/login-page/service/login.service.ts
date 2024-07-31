@@ -9,7 +9,6 @@ import {Subject} from "rxjs";
 import {Store} from "@ngrx/store";
 import {saveTokenInStorage} from "../../../../state/action/login-token.actions";
 import {userDataAction} from "../../../../state/action/user-data.action";
-import {NewPasswordComponent} from "../component/new-password/new-password.component";
 import {NewPasswordDto} from "../component/helper/NewPasswordDto";
 
 @Injectable()
@@ -40,7 +39,7 @@ export class LoginService{
         next: (resp) => {
           this.resetFormFields();
           const userLoginResponse = <UserLoginResponse>resp;
-          if(!userLoginResponse || !userLoginResponse.success) {
+          if(!userLoginResponse?.success) {
             this.errorSubject.next(true)
             return ;
           }

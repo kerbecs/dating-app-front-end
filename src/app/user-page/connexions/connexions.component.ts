@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {AccountComponent} from "../../main-page/components/register-page/components/account/account.component";
 import {UserProfileComponent} from "./user-profile/user-profile.component";
 import {NgForOf} from "@angular/common";
@@ -18,9 +18,10 @@ import {connexionsProfilesSelector} from "../../state/selector/connexions-profil
   templateUrl: './connexions.component.html',
   styleUrl: './connexions.component.css'
 })
-export class ConnexionsComponent{
-  public connexionsProfiles : UserProfileDto[] = [];
-  constructor(public store : Store<storeType>) {
+export class ConnexionsComponent {
+  public connexionsProfiles: UserProfileDto[] = [];
+
+  constructor(public store: Store<storeType>) {
     this.store.select(connexionsProfilesSelector)
       .subscribe(connexions => {
         this.connexionsProfiles = connexions;

@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Input} from '@angular/core';
 import {MapEvent} from "../../helper/map-event";
 import {MapService} from "../../service/map.service";
 import {ActivatedRoute, RouterLink} from "@angular/router";

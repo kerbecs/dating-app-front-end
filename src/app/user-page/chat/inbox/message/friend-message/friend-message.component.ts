@@ -36,7 +36,7 @@ export class FriendMessageComponent implements AfterViewInit{
       .subscribe(connexions => {
         const user = connexions.find(it => it.userId == this.message.senderId);
         this.renderer.setStyle(this.imgProfile.nativeElement,'background-image',
-          `url('${user?.imgUrl || 'https://freesvg.org/img/abstract-user-flat-4.png'}')`);
+          `url('${user?.imgUrl ?? 'https://freesvg.org/img/abstract-user-flat-4.png'}')`);
       })
   }
   translateMessage(){

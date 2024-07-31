@@ -1,6 +1,5 @@
 import {Injectable} from "@angular/core";
 import {NotificationDto} from "../helper/NotificationDto";
-import {UserMatchAction} from "../../welcome-page/helper/user-match-action";
 import {UserDataDto} from "../../../state/helper/user-data-dto";
 import {Store} from "@ngrx/store";
 import {storeType} from "../../../state/store";

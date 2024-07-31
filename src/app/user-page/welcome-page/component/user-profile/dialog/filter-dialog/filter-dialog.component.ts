@@ -1,10 +1,9 @@
-import {Component, Inject} from "@angular/core";
+import {Component} from "@angular/core";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {
-  MAT_DIALOG_DATA,
   MatDialogActions,
   MatDialogClose,
   MatDialogContent,
@@ -52,43 +51,45 @@ import {MatIcon} from "@angular/material/icon";
   ],
 })
 export class FilterDialogComponent {
-  public preferenceList : string[] = [];
-  public educationList : string[] = [];
-  public sexualOrientationList : string[] = [];
-  public raceLit : string[] = [];
-  public genderList : string[] = [];
-    constructor(
+  public preferenceList: string[] = [];
+  public educationList: string[] = [];
+  public sexualOrientationList: string[] = [];
+  public raceLit: string[] = [];
+  public genderList: string[] = [];
+
+  constructor(
     public dialogRef: MatDialogRef<FilterDialogComponent>,
-    store : Store<storeType>,
-    public filterUserProfileService : FilterUserProfileService
+    store: Store<storeType>,
+    public filterUserProfileService: FilterUserProfileService
   ) {
     store.select(educationSelector)
       .subscribe(educationList => {
         this.educationList = educationList;
       })
-      store.select(sexualOrientationSelector)
-        .subscribe(sexualOrientationList => {
-          this.sexualOrientationList = sexualOrientationList;
-        })
-      store.select(raceSelector)
-        .subscribe(raceLit => {
-          this.raceLit = raceLit;
-        })
-      store.select(preferenceSelector)
-        .subscribe(preferenceList => {
-          this.preferenceList = preferenceList;
-        })
-      store.select(genderSelector)
-        .subscribe(genderList => {
-          this.genderList = genderList;
-        })
+    store.select(sexualOrientationSelector)
+      .subscribe(sexualOrientationList => {
+        this.sexualOrientationList = sexualOrientationList;
+      })
+    store.select(raceSelector)
+      .subscribe(raceLit => {
+        this.raceLit = raceLit;
+      })
+    store.select(preferenceSelector)
+      .subscribe(preferenceList => {
+        this.preferenceList = preferenceList;
+      })
+    store.select(genderSelector)
+      .subscribe(genderList => {
+        this.genderList = genderList;
+      })
   }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
-  onApplyFilters(){
-      this.filterUserProfileService.filter();
-      this.dialogRef.close();
+
+  onApplyFilters() {
+    this.filterUserProfileService.filter();
+    this.dialogRef.close();
   }
 }

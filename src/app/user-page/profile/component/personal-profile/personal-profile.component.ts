@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {MatFormField, MatFormFieldModule, MatLabel, MatSuffix} from "@angular/material/form-field";
+import {Component} from '@angular/core';
+import {MatFormField, MatFormFieldModule, MatLabel} from "@angular/material/form-field";
 import {MatIcon} from "@angular/material/icon";
 import {MatInput, MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -24,7 +24,6 @@ import {EnumFormatPipe} from "../../../pipe/enum-format.pipe";
 import {educationSelector} from "../../../../state/selector/education.selector";
 import {sexualOrientationSelector} from "../../../../state/selector/sexual-orientation.selector";
 import {raceSelector} from "../../../../state/selector/race.selector";
-import {preferenceSelector} from "../../../../state/selector/preference.selector";
 import {genderSelector} from "../../../../state/selector/gender.selector";
 import {PersonalProfileService} from "../../service/personal-profile.service";
 

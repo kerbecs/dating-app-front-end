@@ -9,8 +9,6 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../../environments/environment";
 import {loginTokenSelector} from "../../../state/selector/login-token.selector";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {userDataAction} from "../../../state/action/user-data.action";
-import {UserProfileDto} from "../../welcome-page/helper/user-profile-dto";
 import {getTokenFromStorage} from "../../../state/action/login-token.actions";
 
 @Injectable({providedIn: 'root'})
@@ -87,15 +85,15 @@ export class PersonalProfileService {
 
   private initializeFormData(){
     this.personalProfileForm.setValue({
-      firstName: this.userData?.userProfileDto?.firstName || '',
-      lastName: this.userData?.userProfileDto?.lastName || '',
-      country: this.userData?.userProfileDto?.countryCode || '',
-      city: this.userData?.userProfileDto?.city || '',
-      gender: this.userData?.userProfileDto?.gender || '',
+      firstName: this.userData?.userProfileDto?.firstName ?? '',
+      lastName: this.userData?.userProfileDto?.lastName ?? '',
+      country: this.userData?.userProfileDto?.countryCode ?? '',
+      city: this.userData?.userProfileDto?.city ?? '',
+      gender: this.userData?.userProfileDto?.gender ?? '',
       birthDate: this.userData?.userProfileDto?.birthDate,
-      educationList: this.userData?.userProfileDto?.educationList || [],
-      sexualOrientation: this.userData?.userProfileDto?.sexualOrientation || '',
-      race: this.userData?.userProfileDto?.race || '',
+      educationList: this.userData?.userProfileDto?.educationList ?? [],
+      sexualOrientation: this.userData?.userProfileDto?.sexualOrientation ?? '',
+      race: this.userData?.userProfileDto?.race ?? '',
     })
   }
   openSnackBar(message: string, action: string) {

@@ -1,7 +1,6 @@
 import {AfterViewInit, Component, ElementRef, Renderer2, ViewChild} from '@angular/core';
 import {MatIcon} from "@angular/material/icon";
 import {UserProfileService} from "../../service/user-profile-service";
-import {UserProfileDto} from "../../helper/user-profile-dto";
 import {AgePipe} from "../../pipe/age-pipe";
 import {CountryPipe} from "../../pipe/country-pipe";
 import {MatProgressSpinner} from "@angular/material/progress-spinner";

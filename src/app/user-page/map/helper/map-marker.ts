@@ -1,4 +1,4 @@
-import {marker, Marker} from "leaflet";
+import {Marker} from "leaflet";
 
 export class MapMarker{
   private _id : number;

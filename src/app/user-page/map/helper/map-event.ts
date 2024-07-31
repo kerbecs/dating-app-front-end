@@ -1,6 +1,3 @@
-import * as L from 'leaflet';
-import {Icon} from "leaflet";
-
 export class MapEvent {
   private _id!: number
   private _x: number

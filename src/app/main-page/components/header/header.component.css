@@ -12,7 +12,7 @@ nav {
 
 li span {
   font-size: 2.6dvh;
-  font-family: "Atkinson Hyperlegible", sans-serif;;
+  font-family: "Atkinson Hyperlegible", sans-serif;
 }
 
 main {
@@ -87,4 +87,8 @@ ul li:hover{
 .language{
   width: 5vh;
   position: absolute;
+}
+.logo{
+  width: 8dvh;
+  height: 8dvh;
 }
